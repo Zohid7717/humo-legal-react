@@ -1,0 +1,45 @@
+.admin{
+  margin-top: 0;
+  &__wrap{
+    display: flex;
+    justify-content: center;
+  }
+  &__form{
+    margin: 150px 0;
+    width: 360px;
+    border: 2px solid aqua;
+    padding: 35px;
+    display: flex;
+    flex-direction: column;
+    label{
+      display: flex;
+      flex-direction: column;
+      margin-top: 20px;
+      font-size: 20px;
+    }
+    input{
+      height: 35px;
+      background: none;
+      padding: 10px 15px;
+      margin-top: 10px;
+      border-bottom: 1px solid aqua;
+    }
+  }
+  &__form-title{
+    font-size: 26px;
+  }
+  &__form-submit{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 35px;
+    margin-top: 35px;
+    background-color: #ee6c2f;
+    width: 100%;
+    padding: 10px 20px;
+  }
+  &__helperText{
+    font-size: 12px;
+    color: red;
+  }
+}

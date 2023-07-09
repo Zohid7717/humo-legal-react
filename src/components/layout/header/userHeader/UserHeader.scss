@@ -1,0 +1,247 @@
+/*========подключения шрифта=======*/
+@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=Montserrat:wght@300;400;500;700&display=swap');
+
+.header {
+  position: fixed;
+  width: 100%;
+  background: linear-gradient(180deg, rgba(17, 17, 17, 0.9100372570903361) 0%, rgba(255, 255, 255, 0) 94%);
+  backdrop-filter: blur(4px);
+  z-index: 100;
+
+  &__wrap {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 120px;
+  }
+
+  &__burger-wrap {
+    cursor: pointer;
+    display: none;
+    width: 70px;
+    height: 70px;
+    align-items: center;
+    justify-content: center;
+    transition: 0.4s;
+
+    &:hover {
+      background-color: #DBAC16;
+    }
+  }
+
+  &__burger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 26px;
+    align-items: center;
+    position: relative;
+  }
+
+  &__logo {}
+
+  &__logo_link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100px;
+    color: #4dacac;
+
+    &:hover .header__logo_title {
+      text-shadow: #FC0 1px 0 10px;
+    }
+
+    &>img {
+      height: 100%;
+    }
+  }
+
+  &__logo_content {}
+
+  &__logo_title {
+    font-family: 'Bruno Ace SC', cursive;
+    font-size: 22px;
+    transition: 0.4s ease-in-out;
+  }
+
+  &__logo_text {}
+
+  &__right {
+    flex-grow: 1;
+  }
+
+  &__menu {
+    display: flex;
+  }
+
+  &__menu_items {
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 1;
+    border-top: 3px solid #DBAC16;
+  }
+
+  &__menu_item {
+    width: 100%;
+
+    &:not(:last-child) {
+      border-right: 1px solid #DBAC16;
+    }
+  }
+
+  &__menu_link {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+    color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    padding: 10px 10px;
+    width: 100%;
+    transition: 0.4s ease-in-out;
+    white-space: nowrap;
+
+    &:hover {
+      color: #000;
+      background-color: #DBAC16;
+    }
+  }
+
+  &__phone {
+    display: flex;
+    justify-content: end;
+
+    &>a {
+      display: flex;
+      gap: 21px;
+    }
+
+    &:hover .header__phone_text {
+      color: #DBAC16;
+    }
+  }
+
+  &__phone-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 70px;
+  }
+
+  &__phone_text {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 54px;
+    color: #FFFFFF;
+    white-space: nowrap;
+    transition: 0.4s ease-in-out;
+  }
+}
+
+.active-burger-wrap {
+  background-color: #DBAC16;
+}
+
+.active-burger {
+
+  &::before {
+    transform: rotate(45deg);
+    top: 12px;
+
+  }
+
+  &::after {
+    transform: rotate(-45deg);
+    bottom: 12px;
+  }
+
+  &>span {
+    opacity: 0;
+    transform: rotate(-135deg);
+  }
+}
+
+
+
+/*=============adaptive===============*/
+@media (max-width: 915px) {
+  .header {
+    &__wrap {
+      gap: 20px;
+    }
+
+    &__phone_text {
+      font-size: 20px;
+    }
+  }
+}
+
+@media (max-width: 815px) {
+  .header {
+
+    &__wrap {
+      justify-content: space-between;
+      flex-direction: row-reverse;
+      margin: 0 -15px;
+      align-items: start;
+    }
+
+    &__burger-wrap {
+      display: flex;
+
+    }
+
+    &__logo {
+
+      &_text {
+        display: none;
+      }
+    }
+
+    &__right {
+      flex-grow: 0;
+      align-items: start;
+    }
+
+    &__phone-img {
+      transition: 0.4s;
+
+      &:hover {
+        background-color: #fff;
+      }
+    }
+
+    &__phone_text {
+      display: none;
+    }
+
+    &__menu {
+      position: absolute;
+      top: 70px;
+      right: -500%;
+      flex-direction: column;
+      max-width: 390px;
+      width: 100%;
+      align-items: end;
+      transition: 0.4s;
+    }
+
+    &__menu_items {
+      width: 100%;
+      flex-direction: column;
+      backdrop-filter: blur(4px);
+    }
+
+    &__menu_link {
+      color: #000;
+    }
+  }
+
+  .show-menu {
+    right: 0;
+  }
+}

@@ -1,0 +1,12 @@
+.adminNews{
+  position: relative;
+  &__wrap{
+    display: flex;
+    gap: 20px;
+  }
+  &__left{
+    padding: 20px 15px;
+    border-right: 1px solid aqua;
+    height: calc(100vh - 41px);
+  }
+}
