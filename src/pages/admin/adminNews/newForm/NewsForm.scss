@@ -1,4 +1,4 @@
-.newsForm{
+.newsForm {
   background-color: rgba(0, 255, 255, 0.363);
   backdrop-filter: blur(2px);
   position: absolute;
@@ -6,4 +6,75 @@
   left: 0;
   width: calc(100vw);
   height: calc(100vh - 41px);
+
+  &__form {
+    margin: auto;
+    width: 700px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  &__form-wrap {
+    position: relative;
+    label {
+      margin-top: 20px;
+      font-size: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+
+      input {
+        font-size: 18px;
+        padding: 10px;
+      }
+    }
+  }
+
+  &__header {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__select {
+    font-size: 18px;
+    padding: 10px;
+  }
+
+  &__image {
+    padding: 10px;
+    font-size: 18px;
+  }
+
+  &__textarea{
+    height: 100px;
+  }
+
+  &__btn{
+    display: inline-flex;
+    padding: 10px 15px;
+    width: fit-content;
+    font-size: 18px;
+    transition: 0.3s;
+  }
+
+  &__exit {
+    cursor: pointer;
+    position: absolute;
+    font-size: 20px;
+    top: 20px;
+    right: -20px;
+    transition: 0.3s;
+    opacity: 0.5;
+    &:hover{
+      opacity: 1;
+    }
+  }
+
 }

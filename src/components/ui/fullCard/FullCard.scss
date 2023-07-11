@@ -1,0 +1,32 @@
+.fullCard{
+  margin: 25px 0 50px;
+  &__wrap{
+    margin: 0 auto;
+    max-width: 750px;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+  }
+  &__title{
+    font-size: 25px;
+    line-height: 120%;
+    font-weight: bold;
+  }
+  &__image{
+    width: 100%;
+    img{
+      width: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+  &__source{
+    display: flex;
+    gap: 7px;
+  }
+}
+.render-news{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}

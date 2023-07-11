@@ -1,0 +1,20 @@
+.adminSidebar{
+  width: 190px;
+  &__menu{
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+  }
+  &__categoryBTN{
+    background-color: transparent;
+    transition: 0.3s;
+    font-size: 18px;
+  }
+  
+}
+.active{
+  font-size: 22px;
+  font-weight: 700;
+  color: rgb(255, 23, 15);
+  background-color: transparent;
+}

@@ -1,0 +1,33 @@
+.card {
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: 0px 0px 16px 3px rgba(34, 60, 80, 0.12);
+  padding: 10px;
+  position: relative;
+
+  &__image {
+    border-radius: 10px;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  &__delete {
+    font-size: 20px;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    opacity: 0.5;
+    transition: 0.3s;
+    &:hover{
+      opacity: 1;
+    }
+  }
+}

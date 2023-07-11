@@ -20,13 +20,13 @@ const Footer = () => {
           <div className="footer__content">
             <div className="footer__socials">
               <div className="footer__logo">
-                <a href="#" className="footer__logo_link">
+                <Link to="#" className="footer__logo_link">
                   <img src={logo} alt="logo" />
                   <div className="footer__logo_content">
                     <p className="footer__logo_title">HUMO LEGAL</p>
                     <p className="footer__logo_text">АДВАКАТЛИК ФИРМАСИ</p>
                   </div>
-                </a>
+                </Link>
               </div>
               <div className="footer__socials-icon">
                 <Link className='footer__socials-icon-wrap'>
@@ -47,8 +47,8 @@ const Footer = () => {
               <h3 className="footer__address-title">TASHKENT</h3>
               <p className="footer__address-street">Адрес:<br></br> улица Мирзо-Улугбек 25/201, <br></br>Tashkent 100007</p>
               <p className="footer__address-email">
-                <a href="mail:hello@employeelawyer.com">hello@employeelawyer.com</a>
-                <a href='tel:+1.675.332.6756'>+1.675.332.6756</a>
+                <Link to="mail:hello@employeelawyer.com">hello@employeelawyer.com</Link>
+                <Link to='tel:+1.675.332.6756'>+1.675.332.6756</Link>
               </p>
             </div>
             <div className="footer__feed">
@@ -61,7 +61,7 @@ const Footer = () => {
           </div>
           <div className="footer__tail">
             <p className="footer__tail-low">Ⓒ2000.HUMO LEGAL.Все права защищены</p>
-            <a href="#" className="footer__tail-back">В начало</a>
+            <Link to="#" className="footer__tail-back">В начало</Link>
           </div>
         </div>
       </UContainer>

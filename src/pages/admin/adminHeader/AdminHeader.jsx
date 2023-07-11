@@ -1,12 +1,15 @@
 import React from 'react';
-
-import UContainer from '../../../ui/container/UContainer'
-import './AdminHeader.scss'
-import { Link, Navigate } from 'react-router-dom';
+import { RxExit } from 'react-icons/rx';
+import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { logout, selectIsAuth } from '../../../../services/redux/slices/auth';
+
+import UContainer from '../../../components/ui/container/UContainer'
+import { logout, selectIsAuth } from '../../../services/redux/slices/auth';
+
+import './AdminHeader.scss'
 
 const AdminHeader = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const isAuth = useSelector(selectIsAuth);
   const onClickLogout = () => {
@@ -14,6 +17,7 @@ const AdminHeader = () => {
       dispatch(logout());
       window.localStorage.removeItem('token');
     }
+    navigate('/')
   };
 
   return (
@@ -44,7 +48,7 @@ const AdminHeader = () => {
               <Link>Вопросы</Link>
             </li>
           </ul>
-          <Link onClick={onClickLogout} className='adminHeader__exit'>Выход</Link>
+          <Link onClick={onClickLogout} className='adminHeader__exit'><RxExit/></Link>
         </div>
       </UContainer>
     </div>

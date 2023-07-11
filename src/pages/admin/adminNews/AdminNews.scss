@@ -5,8 +5,16 @@
     gap: 20px;
   }
   &__left{
-    padding: 20px 15px;
+    padding: 20px 0;
     border-right: 1px solid aqua;
-    height: calc(100vh - 41px);
+    height: 100% ;
   }
+  &__right-wrap{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+    padding: 10px;
+  }
+
 }

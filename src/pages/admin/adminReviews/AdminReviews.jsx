@@ -12,7 +12,7 @@ const AdminReviews = () => {
   return (
     <div className='adminReviews'>
       <UContainer>
-        reviews
+        
       </UContainer>
     </div>
   );

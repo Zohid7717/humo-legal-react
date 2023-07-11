@@ -2,8 +2,8 @@ import React from 'react';
 
 import UserHeader from './userHeader/UserHeader';
 import { useSelector } from 'react-redux';
-import AdminHeader from './adminHeader/AdminHeader';
 import { selectIsAuth } from '../../../services/redux/slices/auth';
+import AdminHeader from '../../../pages/admin/adminHeader/AdminHeader';
 
 const Header = () => {
   const isAuth = useSelector(selectIsAuth);

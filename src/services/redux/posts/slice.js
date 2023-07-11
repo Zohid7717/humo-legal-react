@@ -11,7 +11,7 @@ export const fetchPostsAll = createAsyncThunk('fetchPostsAll', async () => {
 })
 
 const initialState = {
-  category: '',
+  category: 'all',
   posts: [],
   status: 'loading',
 }

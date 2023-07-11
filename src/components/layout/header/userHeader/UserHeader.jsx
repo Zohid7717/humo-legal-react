@@ -6,6 +6,7 @@ import { RxHamburgerMenu } from 'react-icons/rx';
 import { GrClose } from 'react-icons/gr';
 
 import './UserHeader.scss';
+import { Link } from 'react-router-dom';
 
 const UserHeader = () => {
   const [mobileMenu, setMobileMenu] = useState(true);
@@ -24,13 +25,13 @@ const UserHeader = () => {
             </div>
           </div>
           <div className="header__logo">
-            <a href="#" className="header__logo_link">
+            <Link to="/" className="header__logo_link">
               <img src={logo} alt="logo" />
               <div className="header__logo_content">
                 <p className="header__logo_title">HUMO LEGAL</p>
                 <p className="header__logo_text">АДВАКАТЛИК ФИРМАСИ</p>
               </div>
-            </a>
+            </Link>
           </div>
           <div className="header__right">
             <div className="header__phone">
@@ -44,19 +45,19 @@ const UserHeader = () => {
             <div className={mobileMenu ? ['header__menu'] : ['header__menu', 'show-menu'].join(' ')}>
               <ul className="header__menu_items">
                 <li className="header__menu_item active_menu">
-                  <a href="/" className="header__menu_link">ГЛАВНАЯ</a>
+                  <Link to="/" className="header__menu_link">ГЛАВНАЯ</Link>
                 </li>
                 <li className="header__menu_item">
-                  <a href="about.html" className="header__menu_link">О НАС</a>
+                  <Link to="about.html" className="header__menu_link">О НАС</Link>
                 </li>
                 <li className="header__menu_item">
-                  <a href="#" className="header__menu_link">УСЛУГИ</a>
+                  <Link to="#" className="header__menu_link">УСЛУГИ</Link>
                 </li>
                 <li className="header__menu_item">
-                  <a href="#" className="header__menu_link">ПРЕСС ЦЕНТР</a>
+                  <Link to="#" className="header__menu_link">ПРЕСС ЦЕНТР</Link>
                 </li>
                 <li className="header__menu_item">
-                  <a href="#" className="header__menu_link">КОНТАКТЫ</a>
+                  <Link to="#" className="header__menu_link">КОНТАКТЫ</Link>
                 </li>
               </ul>
             </div>
