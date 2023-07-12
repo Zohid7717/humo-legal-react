@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setCategory } from '../../../services/redux/posts/slice';
 import { selectIsAuth } from '../../../services/redux/slices/auth';
 
-const AdminSidebar = ({ setActiveNewsForm }) => {
+const AdminSidebar = ({ setActiveFormToAdd }) => {
   const isAuth = useSelector(selectIsAuth);
   const dispatch = useDispatch();
 
@@ -37,7 +37,7 @@ const AdminSidebar = ({ setActiveNewsForm }) => {
             </button>
           ))
         }
-        <button onClick={() => setActiveNewsForm(true)} className='adminSidebar__categoryBTN' >
+        <button onClick={() => setActiveFormToAdd(true)} className='add-BTN' >
           Добавить
         </button>
       </div>

@@ -23,7 +23,7 @@ const FullCard = () => {
           <div className="fullCard__image">
             <img src={`http://localhost:3000${data.imageUrl}`} alt="card image" />
           </div>
-          <p className="fullCard__source"><TbWorldWww />{data.source}</p>
+          <p className="fullCard__source"><TbWorldWww />{data.paramTree}</p>
           <div className='render-news' dangerouslySetInnerHTML={{ __html: dataText }}></div>
         </div>
       </UContainer>

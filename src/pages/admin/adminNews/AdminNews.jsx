@@ -8,7 +8,7 @@ import UContainer from '../../../components/ui/container/UContainer'
 import { fetchPosts, fetchPostsAll } from '../../../services/redux/posts/slice';
 import Card from '../../../components/ui/card/Card';
 import AdminSidebar from '../adminSidebar/AdminSidebar';
-import NewsForm from './newForm/NewsForm';
+import FormToAdd from './formToAdd/FormToAdd';
 
 import './AdminNews.scss'
 
@@ -16,17 +16,23 @@ const AdminNews = () => {
   const dispatch = useDispatch();
   const isAuth = useSelector(selectIsAuth);
 
-  const category = useSelector(state => state.postsReducer.category);
+  const [title, setTitle] = useState('');
+  const [paramTree, setParamTree] = useState('');
+  const [text, setText] = useState('');
+  const [category, setCategory] = useState('');
+  const [imageUrl, setImageUrl] = useState('');
+
+  const stateCategory = useSelector(state => state.postsReducer.category);
   const posts = useSelector(state => state.postsReducer.posts);
   const status = useSelector(state => state.postsReducer.status);
-  
-  const [activeNewsForm, setActiveNewsForm] = useState(false);
-  const [itemStatus, setItemStatus] = useState(false)
-  
-  const catObj = {
-    category: category
-  };
 
+  const [activeFormToAdd, setActiveFormToAdd] = useState(false);
+  const [itemStatus, setItemStatus] = useState(false);
+  const cardLink = true;
+
+  const catObj = {
+    category: stateCategory
+  };
 
   if (!isAuth) {
     return <Navigate to='/' />
@@ -36,34 +42,75 @@ const AdminNews = () => {
     axios.delete(`/posts/${itemId}`)
   }
 
+  const onSubmit = async () => {
+    event.preventDefault();
+    try {
+      const fields = {
+        title,
+        text,
+        paramTree,
+        category,
+        imageUrl,
+      }
+      await axios.post('/posts', fields)
+      setActiveFormToAdd(false)
+      setItemStatus(true)
+    } catch (error) {
+      console.error(error)
+      alert('Ошибка при создании статьи!')
+    }
+  }
+
   useEffect(() => {
-    if (category==='all') {
+    if (stateCategory === 'all') {
       dispatch(fetchPostsAll())
     } else {
       dispatch(fetchPosts(catObj))
     }
     setItemStatus(false)
-  }, [category, itemStatus])
+  }, [stateCategory, itemStatus])
 
   return (
     <div className='adminNews'>
       <UContainer>
         <div className="adminNews__wrap">
           <div className="adminNews__left">
-            <AdminSidebar setActiveNewsForm={setActiveNewsForm} />
+            <AdminSidebar setActiveFormToAdd={setActiveFormToAdd} />
           </div>
           <div className="adminNews__right">
-            <div className="adminNews__right-wrap">
+            <div className="card-wrap">
               {status === 'loading'
                 ? 'loading'
-                : posts.map(items => <Card key={items._id} id={items._id} title={items.title} image={items.imageUrl} source={items.source} setItemStatus={setItemStatus} deleteItem={deletePost} />)
+                : posts.map(items =>
+                  <Card
+                    key={items._id}
+                    id={items._id}
+                    title={items.title}
+                    image={items.imageUrl}
+                    paramTree={items.paramTree}
+                    setItemStatus={setItemStatus}
+                    deleteItem={deletePost}
+                    cardLink={cardLink}
+                  />)
               }
             </div>
           </div>
           {
-            activeNewsForm
-              ? <NewsForm setActiveNewsForm={setActiveNewsForm} />
-              : ''
+            activeFormToAdd
+              ? <FormToAdd
+                setActiveFormToAdd={setActiveFormToAdd}
+                title={title}
+                setTitle={setTitle}
+                paramTree={paramTree}
+                setParamTree={setParamTree}
+                text={text}
+                setText={setText}
+                category={category}
+                setImageUrl={setImageUrl}
+                setCategory={setCategory}
+                onSubmit={onSubmit}
+              />
+          : ''
           }
         </div>
       </UContainer>

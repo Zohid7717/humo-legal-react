@@ -97,3 +97,23 @@ h6 {
 body {
   font-family: 'Montserrat', sans-serif;
 }
+
+.card-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.add-BTN{
+  display: inline-flex;
+  font-size: 18px;
+  background-color: transparent;
+  border: 1px solid aqua;
+  padding: 10px 20px;
+  transition: 0.3s;
+  &:hover{
+    background-color: aqua;
+  }
+}
