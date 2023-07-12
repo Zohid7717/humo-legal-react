@@ -5,15 +5,14 @@ import { RiDeleteBin2Line } from 'react-icons/ri'
 
 import './Card.scss'
 
-const Card = ({ id, title, image, source, setPostsStatus, deleteItem }) => {
+const Card = ({ id, title, image, source, setItemStatus, deleteItem }) => {
   const deleteContent = (id) => {
     alert('Вы действительно хотите удалить статью?')
     const fileName = image.substring(9, image.length)
     axios.delete(`/delete/${fileName}`)
     deleteItem(id)
-    setPostsStatus(true)
+    setItemStatus(true)
   }
-  // console.log(deleteItem)
   return (
     <div className='card'>
       <div className="card__image">

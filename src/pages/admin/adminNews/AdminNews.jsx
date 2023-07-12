@@ -21,7 +21,7 @@ const AdminNews = () => {
   const status = useSelector(state => state.postsReducer.status);
   
   const [activeNewsForm, setActiveNewsForm] = useState(false);
-  const [postsStatus, setPostsStatus] = useState(false)
+  const [itemStatus, setItemStatus] = useState(false)
   
   const catObj = {
     category: category
@@ -42,8 +42,8 @@ const AdminNews = () => {
     } else {
       dispatch(fetchPosts(catObj))
     }
-    setPostsStatus(false)
-  }, [category, postsStatus])
+    setItemStatus(false)
+  }, [category, itemStatus])
 
   return (
     <div className='adminNews'>
@@ -56,7 +56,7 @@ const AdminNews = () => {
             <div className="adminNews__right-wrap">
               {status === 'loading'
                 ? 'loading'
-                : posts.map(items => <Card key={items._id} id={items._id} title={items.title} image={items.imageUrl} source={items.source} setPostsStatus={setPostsStatus} deleteItem={deletePost} />)
+                : posts.map(items => <Card key={items._id} id={items._id} title={items.title} image={items.imageUrl} source={items.source} setItemStatus={setItemStatus} deleteItem={deletePost} />)
               }
             </div>
           </div>

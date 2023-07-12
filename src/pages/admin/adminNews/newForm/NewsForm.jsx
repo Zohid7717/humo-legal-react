@@ -37,14 +37,14 @@ const NewsForm = ({ setActiveNewsForm }) => {
   const onSubmit = async () => {
     event.preventDefault();
     try {
-      const feilds = {
+      const fields = {
         title,
         source,
         text,
         category,
         imageUrl,
       }
-      const { data } = await axios.post('/posts', feilds)
+      const { data } = await axios.post('/posts', fields)
       const id = data._id;
       navigate(`/adminnews/${id}`)
       setActiveNewsForm(false)
