@@ -6,7 +6,9 @@ import UContainer from '../../../components/ui/container/UContainer';
 import Card from '../../../components/ui/card/Card';
 import axios from '../../../services/network/axios'
 import { fetchReviewsAll } from '../../../services/redux/reviews/slice';
-import FormToAdd from '../adminNews/formToAdd/FormToAdd';
+import FormToAdd from '../../../components/ui/formToAdd/FormToAdd';
+import { setSelectedForm } from '../../../services/redux/formType/slice';
+import './AdminReviews.scss'
 
 const AdminReviews = () => {
 
@@ -52,6 +54,7 @@ const AdminReviews = () => {
   useEffect(() => {
     dispatch(fetchReviewsAll())
     setItemStatus(false)
+    dispatch(setSelectedForm(1))
   }, [itemStatus]);
 
   const deleteItem = (itemId) => {
@@ -60,7 +63,7 @@ const AdminReviews = () => {
   return (
     <div className='adminReviews'>
       <UContainer>
-        <div className="adminReviews_wrap">
+        <div className="adminReviews__wrap">
           <div className="card-wrap">
             {
               reviews.map(items => <Card

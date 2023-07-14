@@ -25,27 +25,27 @@ const AdminHeader = () => {
       <UContainer>
         <div className="adminHeader__wrap">
           <ul className="adminHeader__menu">
-            <li className="adminHeader__link">
-              <Link to='/adminreviews' >Отзывы</Link>
+            <li >
+              <Link className="adminHeader__link" to='/adminreviews' >Отзывы</Link>
             </li>
-            <li className="adminHeader__link">
-              <Link>Услуги</Link>
+            <li >
+              <Link className="adminHeader__link">Услуги</Link>
             </li>
-            <li className="adminHeader__link">
-              <Link >Персонал</Link>
+            <li >
+              <Link className="adminHeader__link" >Персонал</Link>
             </li>
-            <li className="adminHeader__link adminHeader__parent">
-              <Link to='/adminnews'>Пресс</Link>
+            <li>
+              <Link className="adminHeader__link"  to='/adminnews'>Пресс</Link>
               
             </li>
-            <li className="adminHeader__link">
-              <Link>Заявки</Link>
+            <li >
+              <Link className="adminHeader__link">Заявки</Link>
             </li>
-            <li className="adminHeader__link">
-              <Link>Клиентская база</Link>
+            <li >
+              <Link className="adminHeader__link">Клиентская база</Link>
             </li>
-            <li className="adminHeader__link">
-              <Link>Вопросы</Link>
+            <li >
+              <Link className="adminHeader__link">Вопросы</Link>
             </li>
           </ul>
           <Link onClick={onClickLogout} className='adminHeader__exit'><RxExit/></Link>

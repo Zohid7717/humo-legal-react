@@ -8,9 +8,10 @@ import UContainer from '../../../components/ui/container/UContainer'
 import { fetchPosts, fetchPostsAll } from '../../../services/redux/posts/slice';
 import Card from '../../../components/ui/card/Card';
 import AdminSidebar from '../adminSidebar/AdminSidebar';
-import FormToAdd from './formToAdd/FormToAdd';
+import FormToAdd from '../../../components/ui/formToAdd/FormToAdd';
 
 import './AdminNews.scss'
+import { setSelectedForm } from '../../../services/redux/formType/slice';
 
 const AdminNews = () => {
   const dispatch = useDispatch();
@@ -68,6 +69,7 @@ const AdminNews = () => {
       dispatch(fetchPosts(catObj))
     }
     setItemStatus(false)
+    dispatch(setSelectedForm(0))
   }, [stateCategory, itemStatus])
 
   return (
