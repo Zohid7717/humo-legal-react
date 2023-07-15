@@ -5,8 +5,11 @@ import { RiDeleteBin2Line } from 'react-icons/ri'
 import imgSketch from '../../../assets/icon/loggo.avif'
 
 import './Card.scss'
+import { useSelector } from 'react-redux';
+import { selectIsAuth } from '../../../services/redux/slices/auth';
 
-const Card = ({ id, title, image, paramTree, setItemStatus, deleteItem ,cardLink}) => {
+const Card = ({ id, title, image, paramTree, setItemStatus, deleteItem, cardLink }) => {
+  const isAuth = useSelector(selectIsAuth)
   const deleteContent = (id) => {
     alert('Вы действительно хотите удалить статью?')
     if (image) {
@@ -27,7 +30,10 @@ const Card = ({ id, title, image, paramTree, setItemStatus, deleteItem ,cardLink
           ? <Link className='card__link' to={`/adminnews/${id}`}>{title}</Link>
           : <p className='card__link' >{title}</p>
       }
-      <RiDeleteBin2Line className='card__delete' onClick={() => deleteContent(id)} />
+      {
+        isAuth
+          ? <RiDeleteBin2Line className='card__delete' onClick={() => deleteContent(id)} /> : ''
+      }
     </div>
   );
 }

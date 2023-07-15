@@ -1,37 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Navigate } from 'react-router-dom';
-import { selectIsAuth } from '../../../services/redux/slices/auth';
-import UContainer from '../../../components/ui/container/UContainer';
-import Card from '../../../components/ui/card/Card';
+
 import axios from '../../../services/network/axios'
-import { fetchReviewsAll } from '../../../services/redux/reviews/slice';
+import UContainer from '../../../components/ui/container/UContainer'
+import styles from './AdminServices.module.scss';
+import { fetchServicesAll } from '../../../services/redux/services/slice';
 import FormToAdd from '../../../components/ui/formToAdd/FormToAdd';
 import { setSelectedForm } from '../../../services/redux/formType/slice';
-import './AdminReviews.scss'
+import Card from '../../../components/ui/card/Card';
 
-const AdminReviews = () => {
-
-  const isAuth = useSelector(selectIsAuth);
-  const dispatch = useDispatch();
-  const reviews = useSelector(state => state.reviewsReducer.reviews);
+const AdminServices = () => {
+  const dispatch = useDispatch()
+  const services = useSelector(state => state.servicesReducer.services)
 
   const [title, setTitle] = useState('');
-  const [paramTree, setParamTree] = useState('');
   const [text, setText] = useState('');
   const [imageUrl, setImageUrl] = useState('');
 
-  const cardLink = false;
   const [itemStatus, setItemStatus] = useState(false);
   const [activeFormToAdd, setActiveFormToAdd] = useState(false);
-
-  if (!isAuth) {
-    return <Navigate to='/' />
-  }
-
-  const deletePost = (itemId) => {
-    axios.delete(`/removeService/${itemId}`)
-  }
 
   const onSubmit = async () => {
     event.preventDefault();
@@ -39,10 +26,9 @@ const AdminReviews = () => {
       const fields = {
         title,
         text,
-        paramTree,
         imageUrl,
       }
-      await axios.post('/createReview', fields)
+      await axios.post('/createService', fields)
       setActiveFormToAdd(false)
       setItemStatus(true)
     } catch (error) {
@@ -52,21 +38,21 @@ const AdminReviews = () => {
   }
 
   useEffect(() => {
-    dispatch(fetchReviewsAll())
-    setItemStatus(false)
-    dispatch(setSelectedForm(1))
+    dispatch(fetchServicesAll())
+    dispatch(setSelectedForm(3))
   }, [itemStatus]);
 
   const deleteItem = (itemId) => {
-    axios.delete(`/removeReview/${itemId}`)
+    axios.delete(`/removeService/${itemId}`)
   }
+
   return (
-    <div className='adminReviews'>
+    <div className={styles.adminServices}>
       <UContainer>
-        <div className="adminReviews__wrap">
-          <div className="card-wrap">
+        <div className={styles.adminServices__wrap}>
+          <div className='card-wrap'>
             {
-              reviews.map(items => <Card
+              services.map(items => <Card
                 key={items._id}
                 id={items._id}
                 title={items.title}
@@ -74,7 +60,6 @@ const AdminReviews = () => {
                 paramTree={items.paramTree}
                 setItemStatus={setItemStatus}
                 deleteItem={deleteItem}
-                cardLink={cardLink}
               />)
             }
           </div>
@@ -84,8 +69,6 @@ const AdminReviews = () => {
                 setActiveFormToAdd={setActiveFormToAdd}
                 title={title}
                 setTitle={setTitle}
-                paramTree={paramTree}
-                setParamTree={setParamTree}
                 text={text}
                 setText={setText}
                 setImageUrl={setImageUrl}
@@ -102,4 +85,4 @@ const AdminReviews = () => {
   );
 }
 
-export default AdminReviews;
+export default AdminServices;

@@ -29,10 +29,10 @@ const AdminHeader = () => {
               <Link className="adminHeader__link" to='/adminreviews' >Отзывы</Link>
             </li>
             <li >
-              <Link className="adminHeader__link">Услуги</Link>
+              <Link className="adminHeader__link" to='/adminservices'>Услуги</Link>
             </li>
             <li >
-              <Link className="adminHeader__link" >Персонал</Link>
+              <Link className="adminHeader__link" to='/adminstaff'>Персонал</Link>
             </li>
             <li>
               <Link className="adminHeader__link"  to='/adminnews'>Пресс</Link>
