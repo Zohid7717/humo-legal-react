@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { styled } from '@mui/material/styles';
 import ArrowForwardIosSharpIcon from '@mui/icons-material/ArrowForwardIosSharp';
 import MuiAccordion from '@mui/material/Accordion';
@@ -42,29 +42,31 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
   borderTop: '2px solid #000',
 }));
 
-export default function CustomizedAccordions() {
-  const [expanded, setExpanded] = React.useState('panel1');
-
+export default function CustomizedAccordions({ faq }) {
+  const [expanded, setExpanded] = React.useState('');
   const handleChange = (panel) => (event, newExpanded) => {
     setExpanded(newExpanded ? panel : false);
   };
-
+  console.log(faq)
   return (
     <div>
-      <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
-        <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
-          <Typography variant='h4'>Collapsible Group Item #1</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography variant='h6'>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor
-            sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-            sit amet blandit leo lobortis eget.
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
+      {
+        faq.map((item, i) => (
+          <Accordion key={i} expanded={expanded === `panel${i}`} onChange={handleChange(`panel${i}`)}>
+            <AccordionSummary aria-controls={`panel${i}d-content`} id={`panel${i}d-header`}>
+              <Typography variant='h4'>{item.title}</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography variant='h6'>
+                <div dangerouslySetInnerHTML={{ __html: item.text }}></div>
+              </Typography>
+            </AccordionDetails>
+          </Accordion>
+        ))
+      }
+      {/*  */}
+
+      {/* <Accordion expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
         <AccordionSummary aria-controls="panel2d-content" id="panel2d-header">
           <Typography variant='h4'>Collapsible Group Item #2</Typography>
         </AccordionSummary>
@@ -89,7 +91,7 @@ export default function CustomizedAccordions() {
             sit amet blandit leo lobortis eget.
           </Typography>
         </AccordionDetails>
-      </Accordion>
+      </Accordion> */}
     </div>
   );
 }

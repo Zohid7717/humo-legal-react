@@ -5,6 +5,8 @@ import { reviewsReducer } from './reviews/slice';
 import { formTypeReducer } from './formType/slice';
 import { servicesReducer } from './services/slice';
 import { staffReducer } from './staff/slice';
+import { requestReducer } from './request/slice';
+import { questionReducer } from './question/slice';
 
 const store = configureStore({
   reducer: {
@@ -13,6 +15,8 @@ const store = configureStore({
     reviewsReducer,
     formTypeReducer,
     servicesReducer,
+    requestReducer,
+    questionReducer,
     staffReducer
   },
 });

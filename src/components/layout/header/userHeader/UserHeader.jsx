@@ -48,7 +48,7 @@ const UserHeader = () => {
                   <Link to="/" className="header__menu_link">ГЛАВНАЯ</Link>
                 </li>
                 <li className="header__menu_item">
-                  <Link to="about.html" className="header__menu_link">О НАС</Link>
+                  <Link to="/about" className="header__menu_link">О НАС</Link>
                 </li>
                 <li className="header__menu_item">
                   <Link to="#" className="header__menu_link">УСЛУГИ</Link>

@@ -35,17 +35,16 @@ const AdminHeader = () => {
               <Link className="adminHeader__link" to='/adminstaff'>Персонал</Link>
             </li>
             <li>
-              <Link className="adminHeader__link"  to='/adminnews'>Пресс</Link>
-              
+              <Link className="adminHeader__link" to='/adminnews'>Пресс</Link>
             </li>
             <li >
-              <Link className="adminHeader__link">Заявки</Link>
+              <Link className="adminHeader__link" to='/adminrequest'>Заявки</Link>
             </li>
             <li >
               <Link className="adminHeader__link">Клиентская база</Link>
             </li>
             <li >
-              <Link className="adminHeader__link">Вопросы</Link>
+              <Link className="adminHeader__link" to='/adminquestion'>Вопросы</Link>
             </li>
           </ul>
           <Link onClick={onClickLogout} className='adminHeader__exit'><RxExit/></Link>

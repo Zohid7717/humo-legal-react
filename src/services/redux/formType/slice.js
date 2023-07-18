@@ -37,10 +37,10 @@ const formTypes= [
     name: 'Вопросы',
     title: 'Вопрос',
     text: true,
-    paramTree: 'Данные о клиенте',
+    paramTree: false,
     category: false,
     image: false,
-  },
+  }
 ]
 
 const initialState = {
