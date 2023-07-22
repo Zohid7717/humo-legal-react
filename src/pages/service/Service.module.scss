@@ -1,0 +1,80 @@
+.service {
+
+  &__hero {
+    background-image: url('../../assets/uzbekistan-steve-davey-blog.avif');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+
+    @media (max-width: 815px) {
+      padding: 220px 0px 150px 0px;
+    }
+  }
+
+  &__hero_text {
+    max-width: 50%;
+    color: #000000;
+    text-shadow: 0px 0px 3px rgb(0, 0, 0);
+    font-size: 34px;
+    font-weight: 700;
+
+    @media (max-width: 815px) {
+      font-size: 24px;
+    }
+
+    @media (max-width: 600px) {
+      max-width: 100%;
+    }
+  }
+
+  &__wrap {
+    display: flex;
+    flex-direction: column;
+    padding: 5.55% 0;
+    align-items: center;
+    background-color: #F8F8FA;
+  }
+
+  &__card {
+    margin-top: 5.5%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5%;
+    justify-content: center;
+    padding: 0 50px;
+    position: relative;
+    @media (max-width: 950px){
+      padding: 0;
+      gap: 20px;
+    }
+  }
+
+  &__card_img {
+    width: 80px;
+    height: 80px;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  &__card_title {
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 120%;
+    cursor: pointer;
+    color: rgb(3, 39, 71);
+  }
+}
+
+.exit{
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  top: 20px;
+  right: 20px;
+}

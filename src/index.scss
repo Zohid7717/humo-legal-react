@@ -41,6 +41,9 @@ body {
   -moz-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
+.fixed{
+  overflow: hidden;
+}
 
 input,
 button,
@@ -106,14 +109,15 @@ body {
   padding: 10px;
 }
 
-.add-BTN{
+.add-BTN {
   display: inline-flex;
   font-size: 18px;
   background-color: transparent;
   border: 1px solid aqua;
   padding: 10px 20px;
   transition: 0.3s;
-  &:hover{
+
+  &:hover {
     background-color: aqua;
   }
 }
@@ -122,4 +126,48 @@ body {
   background-color: transparent;
   border: 1px solid;
   padding: 10px 15px;
+}
+
+.service {
+  &__card_item {
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 32%;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0px 0px 5px 0px rgba(34, 60, 80, 0.17);
+    transition: 0.5s;
+    @media (max-width: 866px){
+      width: 267px;
+    }
+    &:hover{
+      box-shadow: 0px 0px 15px 10px rgba(34, 60, 80, 0.17);
+    }
+
+  }
+  &__card_text {
+    width: 0;
+    font-size: 18px;
+    line-height: 120%;
+    overflow: hidden;
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+  }
+}
+
+.view {
+  background-color: #948a8a;
+  padding: 3%;
+  width: 97%;
+  position: absolute;
+}
+.viewText{
+  width: auto;
+  overflow: visible;
+  position: relative;
+  opacity: 1;
+  visibility: visible;
 }

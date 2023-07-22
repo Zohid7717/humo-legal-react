@@ -68,25 +68,27 @@ const Footer = () => {
                 </a>
               </div>
             </div>
-            <div className="footer__address">
-              <h3 className="footer__address-title">TASHKENT</h3>
-              <p className="footer__address-street">Адрес:<br></br> улица Мирзо-Улугбек 25/201, <br></br>Tashkent 100007</p>
-              <p className="footer__address-email">
-                <a href="mailto:hello@employeelawyer.com">hello@employeelawyer.com</a>
-                <Link to='tel:+998 97 738 34 32'>+998 97 738 34 32</Link>
-              </p>
-            </div>
-            <div className="footer__feed">
-              <h3 className="footer__feed-title">ДЛЯ ОБРАТНОЙ СВЯЗИ</h3>
-              <label className="footer__feed-input">Введите свой номер
-                <input type="text" value={phone} onChange={(e)=>setPhone(e.target.value)} placeholder='+998 XX XXX XX XX' />
-              </label>
-              <button onClick={Submit} className='footer__feed-submit'>ОТПРАВИТЬ НОМЕР</button>
+            <div className="footer__text">
+              <div className="footer__address">
+                <h3 className="footer__address-title">TASHKENT</h3>
+                <p className="footer__address-street">Адрес:<br></br> улица Мирзо-Улугбек 25/201, <br></br>Tashkent 100007</p>
+                <p className="footer__address-email">
+                  <a href="mailto:hello@employeelawyer.com">hello@employeelawyer.com</a>
+                  <Link to='tel:+998 97 738 34 32'>+998 97 738 34 32</Link>
+                </p>
+              </div>
+              <div className="footer__feed">
+                <h3 className="footer__feed-title">ДЛЯ ОБРАТНОЙ СВЯЗИ</h3>
+                <label className="footer__feed-input">Введите свой номер
+                  <input type="text" value={phone} onChange={(e) => setPhone(e.target.value)} placeholder='+998 XX XXX XX XX' />
+                </label>
+                <button onClick={Submit} className='footer__feed-submit'>ОТПРАВИТЬ НОМЕР</button>
+              </div>
             </div>
           </div>
           <div className="footer__tail">
             <p className="footer__tail-low">Ⓒ2000.HUMO LEGAL.Все права защищены</p>
-            <Link to="#" className="footer__tail-back">В начало</Link>
+            <Link to="#" className="footer__tail-back"></Link>
           </div>
         </div>
       </UContainer>

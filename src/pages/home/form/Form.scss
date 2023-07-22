@@ -41,11 +41,13 @@
       width: 1000%;
       height: 3px;
       background: aliceblue;
-      ;
       position: absolute;
       right: 0;
       bottom: -32px;
       border-radius: 1.5px;
+      @media (max-width: 965px){
+        bottom: -10px;
+      }
     }
   }
 
@@ -68,11 +70,12 @@
 
   &__head {
     display: flex;
-    gap: 33px;
+    gap: 5.9%;
     flex-wrap: wrap;
-    justify-content: space-between;
-
+    justify-content: start;
+    
     input {
+      width: 263px;
       padding: 10px 5px;
       font-size: 18px;
     }
@@ -114,6 +117,7 @@
 @media (max-width: 965px) {
   .form {
     &__wrap {
+      padding-top: 20px;
       flex-direction: column;
     }
 
@@ -130,13 +134,24 @@
         width: 47%;
       }
     }
+    &__text{
+      margin-top: 20px;
+    }
   }
 }
 
 @media (max-width: 599px) {
+  .form__date{
+    flex-direction: column;
+  }
   .form {
+    &__title{
+      font-size: 25px;
+    }
+    &__text{
+      line-height: 120%;
+    }
     &__head {
-      flex-direction: column;
 
       input {
         width: 100%;
@@ -152,7 +167,7 @@
     }
 
     &__wrap {
-      padding: 50px 0% 55px 0%;
+      padding: 20px 0%;
     }
   }
 }

@@ -6,13 +6,15 @@ import why3 from '../../../assets/why-3.avif'
 import why4 from '../../../assets/why-4.avif'
 import why5 from '../../../assets/why-5.avif'
 import './Why.scss'
+import SectionTitle from '../../../components/ui/SectionTitle/SectionTitle';
 
 const Why = () => {
   return (
     <div className="why">
       <UContainer>
         <div className="why__wrap">
-          <h2 className="why__title">ПОЧЕМУ МЫ?</h2>
+          <SectionTitle title={'ПОЧЕМУ МЫ?'} />
+          <h2 className="why__title"></h2>
           <ul className="why__items">
             <li className="why__item">
               <div className="why__item-content">

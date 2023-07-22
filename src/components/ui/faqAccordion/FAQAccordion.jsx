@@ -42,16 +42,16 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
   borderTop: '2px solid #000',
 }));
 
-export default function CustomizedAccordions({ faq }) {
+export default function CustomizedAccordions({ data}) {
   const [expanded, setExpanded] = React.useState('');
   const handleChange = (panel) => (event, newExpanded) => {
     setExpanded(newExpanded ? panel : false);
   };
-  console.log(faq)
+  
   return (
     <div>
       {
-        faq.map((item, i) => (
+        data.map((item, i) => (
           <Accordion key={i} expanded={expanded === `panel${i}`} onChange={handleChange(`panel${i}`)}>
             <AccordionSummary aria-controls={`panel${i}d-content`} id={`panel${i}d-header`}>
               <Typography variant='h4'>{item.title}</Typography>

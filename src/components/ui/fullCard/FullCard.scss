@@ -1,11 +1,11 @@
 .fullCard{
-  margin: 25px 0 50px;
   &__wrap{
     margin: 0 auto;
     max-width: 750px;
     display: flex;
     flex-direction: column;
     gap: 35px;
+    padding: 150px 0 40px 0;
   }
   &__title{
     font-size: 25px;

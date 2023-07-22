@@ -26,11 +26,11 @@ const Reviews = () => {
               navigation={{
                 nextEl: ".reviews__prev",
                 prevEl: ".reviews__next",
-                disabledClass: "swiper-button-disabled"
+                disabledClass: "reviews__item-text"
               }}
               loop={true}
               autoplay={{
-                delay: 7000,
+                delay: 3000,
                 disableOnInteraction: false,
               }}
             >

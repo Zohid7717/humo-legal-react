@@ -34,22 +34,13 @@
 
   &__content {
     padding: 7%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
   }
 
   &__title {
     margin-bottom: 30px;
-  }
-
-  &__btn {
-    display: inline-block;
-    font-weight: 400;
-    font-size: 30px;
-    line-height: 120%;
-    text-align: center;
-    color: #FFFFFF;
-    padding: 30px 13.73px;
-    background-color: #000000;
-    margin: 44px 0px 0px 0px;
   }
 }
 

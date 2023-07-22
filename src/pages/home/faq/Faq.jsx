@@ -5,6 +5,7 @@ import './Faq.scss';
 import CustomizedAccordions from '../../../components/ui/faqAccordion/FAQAccordion';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchQuestionAll, fetchQuestionLimit } from '../../../services/redux/question/slice';
+import SectionTitle from '../../../components/ui/SectionTitle/SectionTitle';
 
 const Faq = () => {
   const faq = useSelector(state => state.questionReducer.question)
@@ -39,8 +40,8 @@ const Faq = () => {
             <h2 className="faq__title">
               ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ
             </h2>
-            <CustomizedAccordions faq={faq} />
-            <button className="faq__btn" onClick={() => setLimit(!limit)}>{limit ? 'РАЗВЕРНУТЬ' : 'СВЕРНУТЬ'}</button>
+            <CustomizedAccordions data={faq} />
+            <button className="form__submit" onClick={() => setLimit(!limit)}>{limit ? 'РАЗВЕРНУТЬ' : 'СВЕРНУТЬ'}</button>
           </div>
         </div>
       </UContainer>

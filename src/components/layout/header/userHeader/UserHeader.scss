@@ -4,9 +4,18 @@
 .header {
   position: fixed;
   width: 100%;
-  background: linear-gradient(180deg, rgba(17, 17, 17, 0.9100372570903361) 0%, rgba(255, 255, 255, 0) 94%);
+  background: linear-gradient(180deg, rgb(17, 17, 17) 0%, rgba(255, 255, 255, 0) 94%);
   backdrop-filter: blur(4px);
   z-index: 100;
+  transition: 0.5s;
+
+  &.active-header {
+    background: linear-gradient(180deg, rgb(17, 17, 17) 0%, rgba(77, 76, 76, 0.432) 94%);
+    margin-top: -73px;
+    @media (max-width: 815px){
+      margin-top: 0px;
+    }
+  }
 
   &__wrap {
     position: relative;
@@ -48,6 +57,17 @@
     align-items: center;
     height: 100px;
     color: #4dacac;
+    &.passive{
+      img{
+        margin-top: 63px;
+        @media (max-width: 815px){
+          margin-top: 0;
+        }
+      }
+    }
+    @media (max-width: 640px) {
+      height: 80px;
+    }
 
     &:hover .header__logo_title {
       text-shadow: #FC0 1px 0 10px;
@@ -58,12 +78,23 @@
     }
   }
 
-  &__logo_content {}
+  &__logo_content {
+    &.passive{
+      display: none;
+      @media (max-width: 815px){
+        display: block;
+      }
+    }
+  }
 
   &__logo_title {
     font-family: 'Bruno Ace SC', cursive;
     font-size: 22px;
     transition: 0.4s ease-in-out;
+
+    @media (max-width: 640px) {
+      font-size: 15px;
+    }
   }
 
   &__logo_text {}
@@ -142,6 +173,13 @@
   }
 }
 
+.active_menu{
+  background-color: #DBAC16;
+  a{
+    color: #000;
+  }
+}
+
 .active-burger-wrap {
   background-color: #DBAC16;
 }
@@ -181,6 +219,7 @@
 }
 
 @media (max-width: 815px) {
+
   .header {
 
     &__wrap {
@@ -233,7 +272,10 @@
     &__menu_items {
       width: 100%;
       flex-direction: column;
+      justify-content: start;
+      height: 100vh;
       backdrop-filter: blur(4px);
+      background-color: #ffffff63;
     }
 
     &__menu_link {
@@ -243,5 +285,6 @@
 
   .show-menu {
     right: 0;
+
   }
 }

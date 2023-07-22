@@ -27,7 +27,7 @@ const Card = ({ id, title, image, paramTree, setItemStatus, deleteItem, cardLink
       <p className="card__source">{paramTree}</p>
       {
         cardLink
-          ? <Link className='card__link' to={`/adminnews/${id}`}>{title}</Link>
+          ? <Link className='card__link' to={`/press/${id}`}>{title}</Link>
           : <p className='card__link' >{title}</p>
       }
       {
