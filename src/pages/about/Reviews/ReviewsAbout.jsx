@@ -55,8 +55,6 @@ const ReviewsAbout = () => {
               ))
             }
           </Swiper>
-          <button className="reviews__prev"></button>
-          <button className="reviews__next"></button>
         </div>
       </UContainer>
     </div>

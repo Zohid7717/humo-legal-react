@@ -1,6 +1,9 @@
 .staff{
   display: flex;
-  padding: 5.55% 0;
+  padding: 5.55% 10%;
+  @media (max-width: 550px){
+    padding: 5.55% 0;
+  }
 
   &__list_title{
     text-align: center;

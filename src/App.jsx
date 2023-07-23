@@ -19,6 +19,7 @@ import Service from './pages/service/Service'
 import Press from './pages/press/Press'
 
 import './App.scss'
+import Contact from './pages/contact/Contact'
 
 function App() {
   const [mobileMenu, setMobileMenu] = useState(true);
@@ -46,6 +47,7 @@ function App() {
           <Route path='/service' element={<Service />} />
           <Route path='/press' element={<Press />} />
           <Route path='/press/:id' element={<FullCard />} />
+          <Route path='/contact' element={<Contact />} />
         </Routes>
       </div>
       <Footer />

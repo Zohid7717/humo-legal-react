@@ -2,6 +2,7 @@
   display: flex;
   justify-content: center;
   text-align: center;
+  padding: 0 0 5.55% 0;
 
   &__text {
     display: inline-flex;
@@ -9,8 +10,9 @@
     font-size: 55px;
     line-height: 120%;
     color: #000000;
-    padding: 0px 0px 20px 0px;
+    padding: 0px 0px 1.2% 0px;
     position: relative;
+    text-transform: uppercase;
 
     &::after {
       content: "";

@@ -1,0 +1,21 @@
+.hero-text {
+  background-color: #53535371;
+  padding: 10vh 5vw;
+  min-width: 100%;
+
+  &__content {
+    width: 50%;
+    color: #000000;
+    text-shadow: 0px 0px 3px rgb(0, 0, 0);
+    font-size: 34px;
+    font-weight: 700;
+
+    @media (max-width: 815px) {
+      font-size: 24px;
+    }
+
+    @media (max-width: 600px) {
+      width: 100%;
+    }
+  }
+}

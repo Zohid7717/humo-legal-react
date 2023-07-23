@@ -1,12 +1,15 @@
-.adout {
+.contact {
   &__hero {
-    background-image: url('../../assets/0wsT7\ [MConverter.eu].avif');
+    background-image: url('../../assets/Tashkent.avif');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     height: 100vh;
     display: flex;
     align-items: center;
+
+    @media (max-width: 815px) {
+      padding: 220px 0px 150px 0px;
+    }
   }
- 
 }
