@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
+import { useForm } from 'react-hook-form'
+import PhoneInputWithCountrySelect from 'react-phone-number-input/react-hook-form'
+
+
 import UContainer from '../../../components/ui/container/UContainer';
 import axios from '../../../services/network/axios'
-
+import 'react-phone-number-input/style.css'
 import './Form.scss';
 
 const Form = () => {
@@ -10,6 +14,10 @@ const Form = () => {
   const [phone, setPhone] = useState('')
   const [time, setTime] = useState('')
   const [question, setQuestion] = useState('')
+  const { register, formState: { errors, isValid }, handleSubmit, control, reset } = useForm({
+    mode: "onBlur",
+    defaultValues: {}
+  })
 
   const Submit = async () => {
     try {
@@ -41,16 +49,56 @@ const Form = () => {
             <h2 className="form__title">Давайте поговорим о ваших потребностях!</h2>
             <p className="form__text">Оставьте заявку и мы перезвоним вам, чтобы обсудить все детали.</p>
           </div>
-          <div className="form__form">
+          <form className="form__form">
             <div className="form__head">
-              <input type="text" value={fullName} onChange={(e) => setFullName(e.target.value)} placeholder="Имя" className="form__name" required />
-              <input type="text" value={surname} onChange={(e) => setSurname(e.target.value)} placeholder="Фамилия" className="form__surmane" />
-              <input type="text" value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="Номер телефона 998*********" className="form__phone" />
-              <input type="text" value={time} onChange={(e) => setTime(e.target.value)} placeholder="Время удобная для Вас" className="form__date" />
+              <label className="form__firstName">
+                <input
+                  {...register('fullName', {
+                    required: "Поля обязательно к заполнению!"
+                  })}
+                  type="text"
+                  placeholder="Имя"
+                />
+                {errors?.fullName && <p className='form__error'>Поля обязательно к заполнению!</p>}
+              </label>
+              <label className="form__lastName">
+                <input
+                  {...register('surname')}
+                  type="text"
+                  placeholder="Фамилия"
+                />
+                {errors?.surname && <p className='form__error'>Поля обязательно к заполнению!</p>}
+              </label>
+              <label className='contact-form__phone'>
+                <PhoneInputWithCountrySelect
+                  name='phone'
+                  control={control}
+                  rules={{ required: true }}
+                  defaultCountry='UZ'
+                  placeholder='11 222-33-44'
+                />
+                {errors?.phone && <p className='form__error'>Поля обязательно к заполнению!</p>}
+              </label>
+              <label className='form__mail'>
+                <input
+                  {...register('time', {
+                  })}
+                  type="text"
+                  placeholder='Доп. информация'
+                />
+              </label>
             </div>
-            <textarea cols="30" rows="10" value={question} onChange={(e) => setQuestion(e.target.value)} className="form__textarea" placeholder="Задайте свой вопрос (не обязателно)"></textarea>
-            <button className='form__submit' onClick={() => Submit()}>ОТПРАВИТЬ</button>
-          </div>
+            <label className="form__input-text">
+              <input
+                {...register('question', {
+                  required: "Поля обязательно к заполнению!"
+                })}
+                placeholder="Задайте свой вопрос"
+              />
+              {errors?.question && <p className='form__error'>{errors?.question?.message || "Error!"}</p>}
+            </label>
+            <button className='form__submit' disabled={!isValid}>ОТПРАВИТЬ</button>
+          </form>
         </div>
       </UContainer>
     </div>

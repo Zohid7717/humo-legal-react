@@ -18,7 +18,7 @@
 
   &__wrap {
     position: relative;
-    padding: 100px 5.5% 55px 5.5%;
+    padding: 5.5% 0 5.5% 5.5%;
     display: flex;
     justify-content: space-between;
     gap: 30px;
@@ -45,7 +45,8 @@
       right: 0;
       bottom: -32px;
       border-radius: 1.5px;
-      @media (max-width: 965px){
+
+      @media (max-width: 965px) {
         bottom: -10px;
       }
     }
@@ -57,35 +58,49 @@
     line-height: 36px;
     margin-top: 59px;
     color: aliceblue;
+
+    
+  }
+
+  &__error {
+    position: absolute;
+    font-size: 18px;
+    color: rgb(255, 53, 53);
+    bottom: -25px;
   }
 
   &__form {
     display: flex;
     flex-direction: column;
-    gap: 33px;
-    min-width: 560px;
-    max-width: 560px;
+    min-width: 55.82%;
     flex-grow: 1;
+    gap: 10%;
+    input {
+        width: 100%;
+        padding: 10px 5px;
+        font-size: 18px;
+    
+        &:focus {
+          box-shadow: 0px 0px 15px 3px rgb(179, 255, 0);
+        }
+      }
   }
 
   &__head {
     display: flex;
-    gap: 5.9%;
     flex-wrap: wrap;
-    justify-content: start;
-    
-    input {
-      width: 263px;
-      padding: 10px 5px;
-      font-size: 18px;
-    }
+    justify-content: space-between;
+    row-gap: 35px;
+    label {
+      min-width: 48%;
+        position: relative
+      }
   }
-
-  &__textarea {
-    width: 100%;
-    padding: 10px 5px;
-    font-size: 18px;
-    height: 178px;
+  &__input-text{
+    input{
+      white-space: wrap;
+      height: 100px;
+    }
   }
 
   &__submit {
@@ -134,23 +149,24 @@
         width: 47%;
       }
     }
-    &__text{
+
+    &__text {
       margin-top: 20px;
     }
   }
 }
 
 @media (max-width: 599px) {
-  .form__date{
-    flex-direction: column;
-  }
+
   .form {
-    &__title{
+    &__title {
       font-size: 25px;
     }
-    &__text{
+
+    &__text {
       line-height: 120%;
     }
+
     &__head {
 
       input {
@@ -162,7 +178,7 @@
       width: 100%;
     }
 
-    &__form{
+    &__form {
       min-width: 100%;
     }
 

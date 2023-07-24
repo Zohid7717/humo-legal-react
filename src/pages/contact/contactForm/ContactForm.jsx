@@ -1,24 +1,32 @@
 import React from 'react';
-import Select from 'react-select';
 import { useForm } from 'react-hook-form'
-import { parsePhoneNumberFromString } from "libphonenumber-js"
+import PhoneInputWithCountrySelect from 'react-phone-number-input/react-hook-form';
+import axios from '../../../services/network/axios'
+
+import 'react-phone-number-input/style.css'
+import './ContactForm.scss'
 
 const ContactForm = () => {
-  const phoneNumber = parsePhoneNumberFromString("1234567890", "US")
-  const { register, formState: { errors, isValid }, handleSubmit, reset } = useForm({
+  const { register, formState: { errors, isValid }, handleSubmit, control, reset } = useForm({
     mode: "onBlur",
     defaultValues: {}
   })
-  const onSubmit = (data) => {
-    alert(JSON.stringify(data))
-    reset()
+  const onSubmit = async (data) => {
+    try {
+      await axios.post('/createRequest', data)
+      reset()
+    } catch (error) {
+      console.error(error)
+      alert('Ошибка при создании вопроса!')
+    }
   }
   return (
     <div className='contact-form'>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <h3 className="contact-form__title">Hаша команда будет рада услышать Вас!</h3>
+      <form onSubmit={handleSubmit(onSubmit)} className='contact-form__wrap'>
         <div className="contact-form__name-box">
           <label className="contact-form__firstName">
-            Имя:
+            <p>Имя:</p>
             <input
               {...register('fullName', {
                 required: "Поля обязательно к заполнению!"
@@ -38,24 +46,26 @@ const ContactForm = () => {
         </div>
         <label className='contact-form__phone'>
           Номер телефона:
-          <div className="contact-form__phone-wrap">
-            {phoneNumber.formatInternational()}
-          </div>
-          <input
-            {...register('phone', {
-              required: "Поля обязательно к заполнению!"
-            })}
-            type="number"
+          <PhoneInputWithCountrySelect
+            name='phone'
+            control={control}
+            rules={{ required: true }}
+            defaultCountry = 'UZ'
           />
           {errors?.phone && <p className='contact-form__error'>Поля обязательно к заполнению!</p>}
         </label>
         <label className='contact-form__mail'>
           Email:
           <input
-            {...register('time')}
+            {...register('time', {
+              pattern: {
+                value: /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                message: 'Введите правильный email!'
+              }
+            })}
             type="text"
           />
-          {errors?.time && <p className='contact-form__error'>Поля обязательно к заполнению!</p>}
+          {errors?.time && <p className='contact-form__error'>{ errors.time.message}</p>}
         </label>
         <label className="contact-form__phone">
           Сообщения:
