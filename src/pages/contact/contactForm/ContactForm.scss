@@ -1,6 +1,7 @@
 .contact-form {
   padding: 0 10px 0 0;
-  @media (max-width: 950px){
+
+  @media (max-width: 950px) {
     padding: 0;
   }
 
@@ -27,7 +28,18 @@
       border: 1px solid aqua;
       font-size: 18px;
       border-radius: 5px;
+      transition: 0.3s;
+      &:focus {
+        box-shadow: 0px 0px 10px 0px aqua;
+      }
+    }
 
+    textarea {
+      padding: 10px 5px;
+      border: 1px solid aqua;
+      font-size: 18px;
+      border-radius: 5px;
+      transition: 0.3s;
       &:focus {
         box-shadow: 0px 0px 10px 0px aqua;
       }
@@ -47,7 +59,8 @@
     display: flex;
     justify-content: space-between;
     gap: 2%;
-    @media (max-width: 1150px){
+
+    @media (max-width: 1150px) {
       flex-direction: column;
       gap: 30px;
     }
@@ -55,7 +68,8 @@
     label {
       flex-direction: column;
       width: 48%;
-      @media (max-width: 1150px){
+
+      @media (max-width: 1150px) {
         width: 100%;
       }
     }

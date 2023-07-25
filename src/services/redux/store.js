@@ -7,6 +7,7 @@ import { servicesReducer } from './services/slice';
 import { staffReducer } from './staff/slice';
 import { requestReducer } from './request/slice';
 import { questionReducer } from './question/slice';
+import { selectPageReducer } from './activePage/slice';
 
 const store = configureStore({
   reducer: {
@@ -17,7 +18,8 @@ const store = configureStore({
     servicesReducer,
     requestReducer,
     questionReducer,
-    staffReducer
+    staffReducer,
+    selectPageReducer
   },
 });
 

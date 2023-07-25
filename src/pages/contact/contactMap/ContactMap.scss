@@ -1,0 +1,13 @@
+.contactMap {
+  display: flex;
+  width: 100%;
+  min-height: 100%;
+  @media (max-width: 950px){
+    min-height: 50vh;
+  }
+
+  &__content {
+    width: 100%;
+    min-height: 100%;
+  }
+}

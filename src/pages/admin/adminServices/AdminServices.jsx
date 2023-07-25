@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Navigate } from 'react-router-dom';
 
 import axios from '../../../services/network/axios'
 import UContainer from '../../../components/ui/container/UContainer'
@@ -8,9 +9,12 @@ import { fetchServicesAll } from '../../../services/redux/services/slice';
 import FormToAdd from '../../../components/ui/formToAdd/FormToAdd';
 import { setSelectedForm } from '../../../services/redux/formType/slice';
 import Card from '../../../components/ui/card/Card';
+import { selectIsAuth } from '../../../services/redux/slices/auth';
 
 const AdminServices = () => {
   const dispatch = useDispatch()
+  const isAuth = useSelector(selectIsAuth);
+
   const services = useSelector(state => state.servicesReducer.services)
 
   const [title, setTitle] = useState('');
@@ -40,12 +44,14 @@ const AdminServices = () => {
   useEffect(() => {
     dispatch(fetchServicesAll())
     dispatch(setSelectedForm(3))
-  }, [itemStatus]);
+  }, [itemStatus, isAuth]);
 
   const deleteItem = (itemId) => {
     axios.delete(`/removeService/${itemId}`)
   }
-
+  if (!isAuth) {
+    return <Navigate to='/' />
+  }
   return (
     <div className={styles.adminServices}>
       <UContainer>

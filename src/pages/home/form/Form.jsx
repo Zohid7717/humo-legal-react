@@ -9,31 +9,16 @@ import 'react-phone-number-input/style.css'
 import './Form.scss';
 
 const Form = () => {
-  const [fullName, setFullName] = useState('')
-  const [surname, setSurname] = useState('')
-  const [phone, setPhone] = useState('')
-  const [time, setTime] = useState('')
-  const [question, setQuestion] = useState('')
+  
   const { register, formState: { errors, isValid }, handleSubmit, control, reset } = useForm({
     mode: "onBlur",
     defaultValues: {}
   })
 
-  const Submit = async () => {
+  const onSubmit = async (data) => {
     try {
-      const fields = {
-        fullName,
-        surname,
-        phone,
-        time,
-        question
-      }
-      await axios.post('/createRequest', fields)
-      setFullName('')
-      setSurname('')
-      setPhone('')
-      setTime('')
-      setQuestion('')
+      await axios.post('/createRequest', data)
+      reset()
     } catch (error) {
       console.error(error)
       alert('Ошибка при создании вопроса!')
@@ -49,7 +34,7 @@ const Form = () => {
             <h2 className="form__title">Давайте поговорим о ваших потребностях!</h2>
             <p className="form__text">Оставьте заявку и мы перезвоним вам, чтобы обсудить все детали.</p>
           </div>
-          <form className="form__form">
+          <form onSubmit={handleSubmit(onSubmit)} className="form__form" >
             <div className="form__head">
               <label className="form__firstName">
                 <input
@@ -89,7 +74,7 @@ const Form = () => {
               </label>
             </div>
             <label className="form__input-text">
-              <input
+              <textarea
                 {...register('question', {
                   required: "Поля обязательно к заполнению!"
                 })}

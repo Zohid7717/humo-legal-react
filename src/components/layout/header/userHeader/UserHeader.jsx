@@ -7,12 +7,12 @@ import logo from '../../../../assets/icon/loggo.avif'
 import phone from '../../../../assets/icon/header_phone.svg'
 
 import './UserHeader.scss';
+import { useSelector } from 'react-redux';
 
 const UserHeader = () => {
   const [mobileMenu, setMobileMenu] = useState(true);
   const [Scroll, setScroll] = useState(0)
-  const [activeMenu, setActiveMenu] = useState('/')
-
+  const activePage = useSelector(state => state.selectPageReducer.activePage)
   const menuType = [
     { name: 'ГЛАВНАЯ', value: '/' },
     { name: 'О НАС', value: '/about' },
@@ -21,8 +21,7 @@ const UserHeader = () => {
     { name: 'КОНТАКТЫ', value: '/contact' },
   ]
 
-  const handleClickPage = (e) => {
-    setActiveMenu(e)
+  const handleClickPage = () => {
     if (!mobileMenu) {
       setMobileMenu(true)
     }
@@ -83,8 +82,8 @@ const UserHeader = () => {
                 <ul className="header__menu_items">
                   {
                     menuType.map((item, i) => (
-                      <li key={i} className={activeMenu === item.value ? "header__menu_item active_menu" : "header__menu_item"}>
-                        <Link to={item.value} onClick={()=> handleClickPage(item.value)} value={item.value} className="header__menu_link">{item.name}</Link>
+                      <li key={i} className={activePage === item.value ? "header__menu_item active_menu" : "header__menu_item"}>
+                        <Link to={item.value} value={item.value} onClick={() => handleClickPage()} className="header__menu_link">{item.name}</Link>
                       </li>
                     ))
                   }

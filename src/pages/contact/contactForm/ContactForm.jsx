@@ -67,9 +67,9 @@ const ContactForm = () => {
           />
           {errors?.time && <p className='contact-form__error'>{ errors.time.message}</p>}
         </label>
-        <label className="contact-form__phone">
+        <label className="contact-form__text">
           Сообщения:
-          <input
+          <textarea
             {...register('question', {
               required: "Поля обязательно к заполнению!"
             })}

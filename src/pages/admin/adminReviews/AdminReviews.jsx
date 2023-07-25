@@ -25,10 +25,7 @@ const AdminReviews = () => {
   const [itemStatus, setItemStatus] = useState(false);
   const [activeFormToAdd, setActiveFormToAdd] = useState(false);
 
-  if (!isAuth) {
-    return <Navigate to='/' />
-  }
-
+  
   const deletePost = (itemId) => {
     axios.delete(`/removeService/${itemId}`)
   }
@@ -50,15 +47,18 @@ const AdminReviews = () => {
       alert('Ошибка при создании статьи!')
     }
   }
-
+  
   useEffect(() => {
     dispatch(fetchReviewsAll())
     setItemStatus(false)
     dispatch(setSelectedForm(1))
-  }, [itemStatus]);
+  }, [itemStatus, isAuth]);
 
   const deleteItem = (itemId) => {
     axios.delete(`/removeReview/${itemId}`)
+  }
+  if (!isAuth) {
+    return <Navigate to='/' />
   }
   return (
     <div className='adminReviews'>

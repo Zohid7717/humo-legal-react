@@ -1,0 +1,36 @@
+.notFound{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+  padding: 150px 0 5.5% 0;
+  text-align: center;
+  &__title{
+    font-size: 56px;
+    font-weight: bold;
+    @media (max-width: 724px){
+      font-size: 25px;
+    }
+  }
+  &__numb{
+    font-size: 100px;
+    font-weight: 900;
+    @media (max-width: 724px) {
+        font-size: 50px;
+      }
+  }
+  &__text{
+    font-size: 36px;
+    @media (max-width: 724px) {
+        font-size: 15px;
+      }
+  }
+  &__btn{
+    font-size: 25px;
+    padding: 15px 25px;
+    font-weight: 600;
+    border: 3px solid aqua;
+    color: aqua;
+    width: 270px;
+  }
+}

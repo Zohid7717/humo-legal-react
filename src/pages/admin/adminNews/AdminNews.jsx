@@ -16,7 +16,7 @@ import { setSelectedForm } from '../../../services/redux/formType/slice';
 const AdminNews = () => {
   const dispatch = useDispatch();
   const isAuth = useSelector(selectIsAuth);
-
+  
   const [title, setTitle] = useState('');
   const [paramTree, setParamTree] = useState('');
   const [text, setText] = useState('');
@@ -35,14 +35,11 @@ const AdminNews = () => {
     category: stateCategory
   };
 
-  if (!isAuth) {
-    return <Navigate to='/' />
-  }
-
+  
   const deletePost = (itemId) => {
     axios.delete(`/posts/${itemId}`)
   }
-
+  
   const onSubmit = async () => {
     event.preventDefault();
     try {
@@ -61,7 +58,7 @@ const AdminNews = () => {
       alert('Ошибка при создании статьи!')
     }
   }
-
+  
   useEffect(() => {
     if (stateCategory === 'all') {
       dispatch(fetchPostsAll())
@@ -70,8 +67,12 @@ const AdminNews = () => {
     }
     setItemStatus(false)
     dispatch(setSelectedForm(0))
-  }, [stateCategory, itemStatus])
-
+  }, [stateCategory, itemStatus, isAuth])
+  
+  if (!isAuth) {
+    return <Navigate to='/' />
+  }
+  
   return (
     <div className='adminNews'>
       <UContainer>

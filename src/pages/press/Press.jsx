@@ -5,6 +5,8 @@ import UContainer from '../../components/ui/container/UContainer'
 import PressContent from './PressContent/PressContent';
 import { fetchPostsAll } from '../../services/redux/posts/slice';
 import HeroText from '../../components/ui/HeroText/HeroText'
+import { setActivePage } from '../../services/redux/activePage/slice';
+
 
 import './Press.scss'
 
@@ -16,6 +18,9 @@ const Press = () => {
   const [Memoranda, setMemoranda] = useState([]);
   const [Events, setEvents] = useState([]);
   let news = []
+  useEffect(() => {
+    dispatch(setActivePage('/press'))
+  },[])
   useEffect(() => {
     dispatch(fetchPostsAll());
   }, []);

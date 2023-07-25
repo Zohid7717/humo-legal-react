@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Navigate } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -14,6 +15,7 @@ import axios from '../../../services/network/axios'
 import styles from './adminQuestions.module.scss'
 import FormToAdd from '../../../components/ui/formToAdd/FormToAdd';
 import { setSelectedForm } from '../../../services/redux/formType/slice';
+import { selectIsAuth } from '../../../services/redux/slices/auth';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -40,6 +42,7 @@ function createData(name, calories, fat, carbs, protein) {
 }
 
 const AdminQuestion = () => {
+  const isAuth = useSelector(selectIsAuth);
 
   const dispatch = useDispatch();
 
@@ -70,17 +73,21 @@ const AdminQuestion = () => {
     dispatch(fetchQuestionAll())
     setItemStatus(false)
     dispatch(setSelectedForm(4))
-  }, [itemStatus]);
+  }, [itemStatus, isAuth]);
 
   const delItem = (id) => {
+
     axios.delete(`removeQuestion/${id}`)
     setItemStatus(true)
   }
 
   const rows = question.map((item) => (
-    createData(item.title, <div className='render-question' dangerouslySetInnerHTML={{ __html: item.text }}></div> , <button onClick={() => delItem(item._id)} className="del-btn">Удалить</button>)
+    createData(item.title, <div className='render-question' dangerouslySetInnerHTML={{ __html: item.text }}></div>, <button onClick={() => delItem(item._id)} className="del-btn">Удалить</button>)
   ))
 
+  if (!isAuth) {
+    return <Navigate to='/' />
+  }
   return (
     <div className={styles.adminQuestion}>
       <UContainer>

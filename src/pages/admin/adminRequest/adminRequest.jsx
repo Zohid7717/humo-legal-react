@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Navigate } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -11,6 +12,7 @@ import Paper from '@mui/material/Paper';
 import UContainer from '../../../components/ui/container/UContainer';
 import { fetchRequestAll } from '../../../services/redux/request/slice';
 import axios from '../../../services/network/axios'
+import { selectIsAuth } from '../../../services/redux/slices/auth';
 
 import styles from './adminRequest.module.scss'
 
@@ -39,6 +41,7 @@ function createData(name, calories, fat, carbs, protein) {
 }
 
 export const AdminRequest = () => {
+  const isAuth = useSelector(selectIsAuth);
   const dispatch = useDispatch();
   const request = useSelector((state) => state.requestReducer.request)
   const [requestStatus, setRequestStatus] = useState(false)
@@ -46,7 +49,7 @@ export const AdminRequest = () => {
   useEffect(() => {
     dispatch(fetchRequestAll())
     setRequestStatus(false)
-  }, [requestStatus]);
+  }, [requestStatus, isAuth]);
 
   const delItem = (id) => {
     axios.delete(`removeRequest/${id}`)
@@ -54,9 +57,12 @@ export const AdminRequest = () => {
   }
 
   const rows = request.map((item) => (
-    createData(item.fullName + ' ' + item.surname, item.phone, item.time, item.question, <button onClick={()=>delItem(item._id)} className="del-btn">Удалить</button>)
+    createData(item.fullName + ' ' + item.surname, item.phone, item.time, item.question, <button onClick={() => delItem(item._id)} className="del-btn">Удалить</button>)
   ))
 
+  if (!isAuth) {
+    return <Navigate to='/' />
+  }
   return (
     <div className={styles.adminRequest}>
       <UContainer>

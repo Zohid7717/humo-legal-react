@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Navigate } from 'react-router-dom';
 
 import axios from '../../../services/network/axios'
 import UContainer from '../../../components/ui/container/UContainer'
@@ -7,11 +8,13 @@ import styles from './AdminStaff.module.scss';
 import { fetchStaffAll } from '../../../services/redux/staff/slice';
 import FormToAdd from '../../../components/ui/formToAdd/FormToAdd';
 import { setSelectedForm } from '../../../services/redux/formType/slice';
+import { selectIsAuth } from '../../../services/redux/slices/auth';
 import Card from '../../../components/ui/card/Card';
 
 const AdminStaff = () => {
   const dispatch = useDispatch()
   const staff = useSelector(state => state.staffReducer.staff)
+  const isAuth = useSelector(selectIsAuth);
 
   const [title, setTitle] = useState('');
   const [text, setText] = useState('');
@@ -40,10 +43,14 @@ const AdminStaff = () => {
   useEffect(() => {
     dispatch(fetchStaffAll())
     dispatch(setSelectedForm(2))
-  }, [itemStatus]);
+  }, [itemStatus, isAuth]);
 
   const deleteItem = (itemId) => {
     axios.delete(`/removeStaff/${itemId}`)
+  }
+
+  if (!isAuth) {
+    return <Navigate to='/' />
   }
 
   return (

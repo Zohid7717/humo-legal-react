@@ -22,10 +22,20 @@
     display: flex;
     justify-content: space-between;
     gap: 30px;
+
+    @media (max-width: 870px) {
+      padding: 5.5% 0;
+    }
+    @media (max-width: 800px){
+      flex-direction: column;
+    }
   }
 
   &__content {
     max-width: 42%;
+    @media (max-width: 800px){
+      max-width: 100%;
+    }
   }
 
   &__title {
@@ -34,6 +44,9 @@
     line-height: 120%;
     position: relative;
     color: aliceblue;
+    @media (max-width: 560px){
+      font-size: 25px;
+    }
 
     &::after {
       content: '';
@@ -58,8 +71,9 @@
     line-height: 36px;
     margin-top: 59px;
     color: aliceblue;
-
-    
+    @media (max-width: 550px){
+      margin-top: 20px;
+    }
   }
 
   &__error {
@@ -67,6 +81,9 @@
     font-size: 18px;
     color: rgb(255, 53, 53);
     bottom: -25px;
+    @media (max-width: 1272px){
+      font-size: 15px;
+    }
   }
 
   &__form {
@@ -74,16 +91,11 @@
     flex-direction: column;
     min-width: 55.82%;
     flex-grow: 1;
-    gap: 10%;
-    input {
-        width: 100%;
-        padding: 10px 5px;
-        font-size: 18px;
-    
-        &:focus {
-          box-shadow: 0px 0px 15px 3px rgb(179, 255, 0);
-        }
-      }
+    gap: 35px;
+    @media (max-width: 805px){
+      min-width: auto;
+    }
+
   }
 
   &__head {
@@ -91,15 +103,41 @@
     flex-wrap: wrap;
     justify-content: space-between;
     row-gap: 35px;
+
+    @media (max-width: 1160px) {
+      flex-direction: column;
+    }
+
     label {
       min-width: 48%;
-        position: relative
+      position: relative
+    }
+
+    input {
+      width: 100%;
+      padding: 10px 5px;
+      font-size: 18px;
+      transition: 0.3s;
+
+      &:focus {
+        box-shadow: 0px 0px 15px 3px rgb(179, 255, 0);
       }
+    }
   }
-  &__input-text{
-    input{
-      white-space: wrap;
-      height: 100px;
+
+  &__input-text {
+    width: 100%;
+    position: relative;
+
+    textarea {
+      width: 100%;
+      padding: 10px 5px;
+      font-size: 18px;
+      transition: 0.3s;
+
+      &:focus {
+        box-shadow: 0px 0px 15px 3px rgb(179, 255, 0);
+      }
     }
   }
 
@@ -113,77 +151,17 @@
     background-color: #000;
     transition: 0.3s;
     border: 1px solid #000;
+    &:disabled{
+      background-color: #747171;
+      border: 1px solid #747171;
+      cursor: none;
+      &:hover{
+        border: 1px solid #747171;
+      }
+    }
 
     &:hover {
       border: 1px solid white;
-    }
-  }
-}
-
-/*============adaptive============*/
-@media (max-width: 1032px) {
-  .form {
-    &__wrap {
-      padding: 100px 0.5% 55px 0.5%;
-    }
-  }
-}
-
-@media (max-width: 965px) {
-  .form {
-    &__wrap {
-      padding-top: 20px;
-      flex-direction: column;
-    }
-
-    &__content {
-      max-width: 100%;
-    }
-
-    &__form {
-      max-width: 100%;
-    }
-
-    &__head {
-      input {
-        width: 47%;
-      }
-    }
-
-    &__text {
-      margin-top: 20px;
-    }
-  }
-}
-
-@media (max-width: 599px) {
-
-  .form {
-    &__title {
-      font-size: 25px;
-    }
-
-    &__text {
-      line-height: 120%;
-    }
-
-    &__head {
-
-      input {
-        width: 100%;
-      }
-    }
-
-    &__textarea {
-      width: 100%;
-    }
-
-    &__form {
-      min-width: 100%;
-    }
-
-    &__wrap {
-      padding: 20px 0%;
     }
   }
 }

@@ -6,6 +6,7 @@ import cn from 'classnames'
 import UContainer from '../../components/ui/container/UContainer';
 import { fetchServicesAll } from '../../services/redux/services/slice';
 import SectionTitle from '../../components/ui/SectionTitle/SectionTitle'
+import { setActivePage } from '../../services/redux/activePage/slice';
 
 import styles from './Service.module.scss'
 import HeroText from '../../components/ui/HeroText/HeroText';
@@ -16,6 +17,8 @@ const Service = () => {
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(fetchServicesAll())
+    dispatch(setActivePage('/service'))
+
   }, [])
 
   return (

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { RxExit } from 'react-icons/rx';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -14,12 +14,10 @@ const AdminHeader = () => {
   const isAuth = useSelector(selectIsAuth);
   const onClickLogout = () => {
     if (window.confirm('Вы действительно хотите выйте?')) {
-      dispatch(logout());
+    dispatch(logout());
       window.localStorage.removeItem('token');
     }
-    navigate('/')
   };
-
   return (
     <div className='adminHeader'>
       <UContainer>
