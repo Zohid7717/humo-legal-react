@@ -1,0 +1,17 @@
+.modal{
+  text-align: center;
+  background: #000;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid ;
+  max-width: 460px;
+  width: 100%;
+  padding: 2.5%;
+
+  &__text{
+    font-size: 26px;
+    color: aliceblue;
+  }
+}

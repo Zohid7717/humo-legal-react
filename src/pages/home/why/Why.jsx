@@ -18,7 +18,7 @@ const Why = () => {
           <ul className="why__items">
             <li className="why__item">
               <div className="why__item-content">
-                <h3 className="why__item-title">Опытные и квалифицированные юристы</h3>
+                <h2 className="why__item-title">Опытные и квалифицированные юристы</h2>
                 <p className="why__item-text">Наша компания имеет команду высококвалифицированных юристов и адвокатов, которые
                   имеют опыт работы в различных областях
                   права.</p>
@@ -29,7 +29,7 @@ const Why = () => {
             </li>
             <li className="why__item">
               <div className="why__item-content">
-                <h3 className="why__item-title">Индивидуальный подход к каждому клиенту</h3>
+                <h2 className="why__item-title">Индивидуальный подход к каждому клиенту</h2>
                 <p className="why__item-text">Мы стремимся понять потребности каждого клиента и предоставить индивидуальный
                   подход к решению его юридических вопросов.</p>
               </div>
@@ -39,7 +39,7 @@ const Why = () => {
             </li>
             <li className="why__item">
               <div className="why__item-content">
-                <h3 className="why__item-title">Высокий уровень профессионализма</h3>
+                <h2 className="why__item-title">Высокий уровень профессионализма</h2>
                 <p className="why__item-text">Мы гарантируем высокий уровень профессионализма и этики во всех наших делах.</p>
               </div>
               <div className="why__item-img">
@@ -48,7 +48,7 @@ const Why = () => {
             </li>
             <li className="why__item">
               <div className="why__item-content">
-                <h3 className="why__item-title">Комплексный подход к решению проблем</h3>
+                <h2 className="why__item-title">Комплексный подход к решению проблем</h2>
                 <p className="why__item-text">Мы предлагаем комплексный подход к решению юридических проблем наших клиентов,
                   включая консультации, представление
                   интересов в суде и разрешение споров.</p>
@@ -59,7 +59,7 @@ const Why = () => {
             </li>
             <li className="why__item">
               <div className="why__item-content">
-                <h3 className="why__item-title">Репутация и доверие</h3>
+                <h2 className="why__item-title">Репутация и доверие</h2>
                 <p className="why__item-text">Наша компания имеет отличную репутацию и доверие клиентов благодаря нашим
                   профессиональным подходам и высокому качеству
                   предоставляемых услуг.</p>

@@ -6,15 +6,24 @@ import axios from '../../../services/network/axios'
 import 'react-phone-number-input/style.css'
 import './ContactForm.scss'
 
-const ContactForm = () => {
+const ContactForm = ( {setModal}) => {
   const { register, formState: { errors, isValid }, handleSubmit, control, reset } = useForm({
     mode: "onBlur",
     defaultValues: {}
   })
+
+  const modalHidden = () => {
+    setTimeout(() => {
+      setModal(false)
+    }, 3000);
+  }
+
   const onSubmit = async (data) => {
     try {
       await axios.post('/createRequest', data)
+      setModal(true)
       reset()
+      modalHidden()
     } catch (error) {
       console.error(error)
       alert('Ошибка при создании вопроса!')

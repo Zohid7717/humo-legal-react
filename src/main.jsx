@@ -4,6 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './services/redux/store';
 import App from './App.jsx';
+import './i18n';
 
 import { createTheme, responsiveFontSizes, ThemeProvider } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';

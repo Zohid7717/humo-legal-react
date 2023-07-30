@@ -95,7 +95,6 @@
     @media (max-width: 805px){
       min-width: auto;
     }
-
   }
 
   &__head {
@@ -162,6 +161,14 @@
 
     &:hover {
       border: 1px solid white;
+    }
+  }
+  &__modal{
+    z-index: -1;
+    opacity: 0;
+    &.active{
+      z-index: 100;
+      opacity: 1;
     }
   }
 }

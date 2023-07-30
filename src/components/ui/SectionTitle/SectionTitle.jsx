@@ -4,7 +4,7 @@ import './SectionTitle.scss'
 const SectionTitle = ({title}) => {
   return (
     <div className='section-title'>
-      <h3 className='section-title__text'>{title}</h3>
+      <h2 className='section-title__text'>{title}</h2>
     </div>
   );
 }

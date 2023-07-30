@@ -4,7 +4,7 @@ import './HeroText.scss'
 const HeroText = ({text}) => {
   return (
     <div className='hero-text'>
-      <p className="hero-text__content">{text}</p>
+      <h1 className="hero-text__content">{text}</h1>
     </div>
   );
 }

@@ -2,23 +2,32 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form'
 import PhoneInputWithCountrySelect from 'react-phone-number-input/react-hook-form'
 
-
 import UContainer from '../../../components/ui/container/UContainer';
 import axios from '../../../services/network/axios'
 import 'react-phone-number-input/style.css'
 import './Form.scss';
+import Modal from '../../../components/ui/modal/modal';
 
 const Form = () => {
-  
+  const [modal, setModal] = useState(false)
+
   const { register, formState: { errors, isValid }, handleSubmit, control, reset } = useForm({
     mode: "onBlur",
     defaultValues: {}
   })
 
+  const modalHidden = () => {
+    setTimeout(() => {
+      setModal(false)
+    }, 3000);
+  }
+
   const onSubmit = async (data) => {
     try {
       await axios.post('/createRequest', data)
+      setModal(true)
       reset()
+      modalHidden()
     } catch (error) {
       console.error(error)
       alert('Ошибка при создании вопроса!')
@@ -84,6 +93,9 @@ const Form = () => {
             </label>
             <button className='form__submit' disabled={!isValid}>ОТПРАВИТЬ</button>
           </form>
+          <div className={modal ? "form__modal active" : "form__modal"}>
+            <Modal />
+          </div>
         </div>
       </UContainer>
     </div>
