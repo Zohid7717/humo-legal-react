@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useTranslation } from 'react-i18next'
 
 import UContainer from '../../components/ui/container/UContainer';
 import HeroText from '../../components/ui/HeroText/HeroText';
@@ -12,6 +13,7 @@ import './Contact.scss'
 import Modal from '../../components/ui/modal/modal';
 
 const Contact = () => {
+  const { t, i18n } = useTranslation()
   const [modal, setModal] = useState(false)
   const dispatch = useDispatch()
 
@@ -26,7 +28,7 @@ const Contact = () => {
         </UContainer>
       </div>
       <UContainer>
-        <SectionTitle title={'Наши контакты!'} />
+        <SectionTitle title={t('contacts.title')} />
         <div className="contact__body">
           <div className="contact__form">
             <ContactForm setModal={setModal} />

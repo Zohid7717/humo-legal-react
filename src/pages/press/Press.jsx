@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next'
 
 import UContainer from '../../components/ui/container/UContainer'
 import PressContent from './PressContent/PressContent';
@@ -11,6 +12,7 @@ import { setActivePage } from '../../services/redux/activePage/slice';
 import './Press.scss'
 
 const Press = () => {
+  const { t, i18n } = useTranslation()
   const dispatch = useDispatch()
   const posts = useSelector(state => state.postsReducer.posts)
   const status = useSelector(state => state.postsReducer.status)
@@ -42,13 +44,13 @@ const Press = () => {
       <div className="press__news-wrap">
         <UContainer>
           <div className="press__news">
-            <PressContent title='Новости' data={News} />
+            <PressContent title={t('press.news')} data={News} />
           </div>
           <div className="press__news">
-            <PressContent title='Меморандум' data={Memoranda} />
+            <PressContent title={t('press.memorandum')} data={Memoranda} />
           </div>
           <div className="press__news">
-            <PressContent title='События' data={Events} />
+            <PressContent title={t('press.events')} data={Events} />
           </div>
         </UContainer>
       </div>

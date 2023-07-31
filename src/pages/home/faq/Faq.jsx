@@ -5,13 +5,15 @@ import './Faq.scss';
 import CustomizedAccordions from '../../../components/ui/faqAccordion/FAQAccordion';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchQuestionAll, fetchQuestionLimit } from '../../../services/redux/question/slice';
-import SectionTitle from '../../../components/ui/SectionTitle/SectionTitle';
+import { useTranslation } from 'react-i18next'
+
 
 const Faq = () => {
   const faq = useSelector(state => state.questionReducer.question)
   const faqStatus = useSelector(state => state.questionReducer.status)
   const dispatch = useDispatch()
   const [limit, setLimit] = useState(true)
+  const { t, i18n } = useTranslation()
 
   useEffect(() => {
     if (limit) {
@@ -38,10 +40,10 @@ const Faq = () => {
 
           <div className="faq__content">
             <h2 className="faq__title">
-              ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ
+              {t('question.title')}
             </h2>
             <CustomizedAccordions data={faq} />
-            <button className="form__submit" onClick={() => setLimit(!limit)}>{limit ? 'РАЗВЕРНУТЬ' : 'СВЕРНУТЬ'}</button>
+            <button className="form__submit" onClick={() => setLimit(!limit)}>{limit ? t('question.btn-expend') : t('question.btn-collapse')}</button>
           </div>
         </div>
       </UContainer>

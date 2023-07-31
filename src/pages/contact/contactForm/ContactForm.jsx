@@ -1,12 +1,15 @@
 import React from 'react';
 import { useForm } from 'react-hook-form'
 import PhoneInputWithCountrySelect from 'react-phone-number-input/react-hook-form';
+import { useTranslation } from 'react-i18next'
+
 import axios from '../../../services/network/axios'
 
 import 'react-phone-number-input/style.css'
 import './ContactForm.scss'
 
-const ContactForm = ( {setModal}) => {
+const ContactForm = ({ setModal }) => {
+  const { t, i18n } = useTranslation()
   const { register, formState: { errors, isValid }, handleSubmit, control, reset } = useForm({
     mode: "onBlur",
     defaultValues: {}
@@ -31,18 +34,18 @@ const ContactForm = ( {setModal}) => {
   }
   return (
     <div className='contact-form'>
-      <h3 className="contact-form__title">Hаша команда будет рада услышать Вас!</h3>
+      <h3 className="contact-form__title">{t('contacts.form-title') }</h3>
       <form onSubmit={handleSubmit(onSubmit)} className='contact-form__wrap'>
         <div className="contact-form__name-box">
           <label className="contact-form__firstName">
-            <p>Имя:</p>
+            <p>{t('form.name')}:</p>
             <input
               {...register('fullName', {
                 required: "Поля обязательно к заполнению!"
               })}
               type="text"
             />
-            {errors?.fullName && <p className='contact-form__error'>Поля обязательно к заполнению!</p>}
+            {errors?.fullName && <p className='contact-form__error'>{t('form.required') }</p>}
           </label>
           <label className="contact-form__lastName">
             Фамилия:
@@ -50,7 +53,6 @@ const ContactForm = ( {setModal}) => {
               {...register('surname')}
               type="text"
             />
-            {errors?.surname && <p className='contact-form__error'>Поля обязательно к заполнению!</p>}
           </label>
         </div>
         <label className='contact-form__phone'>
@@ -61,7 +63,7 @@ const ContactForm = ( {setModal}) => {
             rules={{ required: true }}
             defaultCountry = 'UZ'
           />
-          {errors?.phone && <p className='contact-form__error'>Поля обязательно к заполнению!</p>}
+          {errors?.phone && <p className='contact-form__error'>{ t('form.required')}</p>}
         </label>
         <label className='contact-form__mail'>
           Email:
@@ -69,7 +71,7 @@ const ContactForm = ( {setModal}) => {
             {...register('time', {
               pattern: {
                 value: /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                message: 'Введите правильный email!'
+                message: t('form.req-mes')
               }
             })}
             type="text"
@@ -77,13 +79,13 @@ const ContactForm = ( {setModal}) => {
           {errors?.time && <p className='contact-form__error'>{ errors.time.message}</p>}
         </label>
         <label className="contact-form__text">
-          Сообщения:
+          {t('form.question')}
           <textarea
             {...register('question', {
-              required: "Поля обязательно к заполнению!"
+              required: t('form.required')
             })}
           />
-          {errors?.question && <p className='contact-form__error'>{errors?.question?.message || "Error!"}</p>}
+          {errors?.question && <p className='contact-form__error'>{t('form.required')}</p>}
         </label>
         <button disabled={!isValid}>ОТПРАВИТЬ</button>
       </form>

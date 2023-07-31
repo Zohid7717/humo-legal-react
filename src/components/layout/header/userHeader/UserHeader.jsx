@@ -20,11 +20,11 @@ const UserHeader = () => {
   const activePage = useSelector(state => state.selectPageReducer.activePage)
   const { t, i18n } = useTranslation()
   const menuType = [
-    { name: 'ГЛАВНАЯ', value: '/' },
-    { name: 'О НАС', value: '/about' },
-    { name: 'УСЛУГИ', value: '/service' },
-    { name: 'ПРЕСС ЦЕНТР', value: '/press' },
-    { name: 'КОНТАКТЫ', value: '/contact' },
+    { name: t('userHeader-menu.home'), value: '/' },
+    { name: t('userHeader-menu.about'), value: '/about' },
+    { name: t('userHeader-menu.services'), value: '/service' },
+    { name: t('userHeader-menu.press-center'), value: '/press' },
+    { name: t('userHeader-menu.contacts'), value: '/contact' },
   ]
   const langList = [
     { name: 'uz', image: imgUZB },

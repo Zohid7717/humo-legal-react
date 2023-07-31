@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { TfiClose } from 'react-icons/tfi'
+import { useTranslation } from 'react-i18next'
 import cn from 'classnames'
 
 import UContainer from '../../components/ui/container/UContainer';
@@ -12,6 +13,7 @@ import styles from './Service.module.scss'
 import HeroText from '../../components/ui/HeroText/HeroText';
 
 const Service = () => {
+  const { t, i18n } = useTranslation()
   const services = useSelector(state => state.servicesReducer.services)
   const [view, setView] = useState('')
   const dispatch = useDispatch()
@@ -30,7 +32,7 @@ const Service = () => {
       </div>
       <UContainer>
         <div className={styles.service__wrap}>
-          <SectionTitle title={'ОСНОВНЫЕ ОБЛАСТИ СПЕЦИАЛИЗАЦИИ ФИРМЫ.'} />
+          <SectionTitle title={t('service.title')} />
           <div className={styles.service__card}>
             {
               services.map((item, i) => (

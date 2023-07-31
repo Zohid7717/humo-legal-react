@@ -1,15 +1,18 @@
 import React, { useEffect } from 'react';
 import { Navigation, Autoplay } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import UContainer from '../../../components/ui/container/UContainer';
+import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux';
+
+import UContainer from '../../../components/ui/container/UContainer';
 import { fetchReviewsAll } from '../../../services/redux/reviews/slice';
+import SectionTitle from '../../../components/ui/SectionTitle/SectionTitle';
 
 import 'swiper/css';
 import './ReviewsAbout.scss'
-import SectionTitle from '../../../components/ui/SectionTitle/SectionTitle';
 
 const ReviewsAbout = () => {
+  const { t, i18n } = useTranslation()
   const dispatch = useDispatch()
   const reviews = useSelector(state => state.reviewsReducer.reviews);
   const reviewsStatus = useSelector(state => state.reviewsReducer.status)
@@ -19,7 +22,7 @@ const ReviewsAbout = () => {
   return (
     <div className="about-reviews">
       <UContainer>
-        <SectionTitle title={'ОТЗЫВЫ НАШИХ ПОСТОЯНЫХ КЛИЕНТОВ'}/>
+        <SectionTitle title={t('about.client')}/>
         {/* <h2 className='about-reviews__title'><span></span></h2> */}
         <div className="about-reviews__wrap">
           <Swiper

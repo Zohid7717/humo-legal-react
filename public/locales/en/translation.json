@@ -1,5 +1,53 @@
 {
   "logo": {
     "text": "LAWYER FIRM"
+  },
+  "userHeader-menu": {
+    "home": "HOME",
+    "about": "ABOUT US",
+    "services": "SERVICES",
+    "press-center": "PRESS CENTER",
+    "contacts": "CONTACTS"
+  },
+  "question": {
+    "title": "FAQ",
+    "btn-expend": "EXPEND",
+    "btn-collapse": "COLLAPSE"
+  },
+  "form": {
+    "name": "Name",
+    "surname": "Surname",
+    "information": "Add. information",
+    "question": "Ask your question...",
+    "required": "The field is required!",
+    "btn": "SUBMIT",
+    "req-mes": "Please enter a valid email address!"
+  },
+  "footer": {
+    "cty": "TASHKENT",
+    "address": "Address:",
+    "street": "Street Mirzo-Ulugbek 25/201,",
+    "index": "Tashkent 100007",
+    "form": "FOR FEEDBACK",
+    "form-label": "Enter your number",
+    "btn": "SEND NUMBER",
+    "low": "All rights reserved!",
+    "num-error": "Error sending number!"
+  },
+  "about": {
+    "team": "OUR TEAM",
+    "client": "REVIEWS FROM OUR LOYAL CUSTOMERS"
+  },
+  "service": {
+    "title": "MAIN AREAS OF SPECIALIZATION OF THE FIRM."
+  },
+  "press": {
+    "news": "NEWS",
+    "memorandum": "MENORADUN",
+    "events": "EVENTS"
+  },
+  "contacts": {
+    "title": "OUR CONTACTS",
+    "form-title": "Our team will be glad to hear from you!"
   }
 }

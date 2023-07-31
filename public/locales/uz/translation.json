@@ -1,5 +1,53 @@
 {
   "logo": {
-    "text": "АДВАКАТЛИК ФИРМАСИ"
+    "text": "ADVOKATLIK FIRMASI"
+  },
+  "userHeader-menu": {
+    "home": "ASOSIY",
+    "about": "MA'LUMOTLAR",
+    "services": "XIZMATLAR",
+    "press-center": "YANGILIKALR",
+    "contacts": "ALOQA"
+  },
+  "question": {
+    "title": "KO'P SO'RALADIGAN SAVOLLAR",
+    "btn-expend": "KO`RSATISH",
+    "btn-collapse": "YASHIRISH"
+  },
+  "form": {
+    "name": "Ismingiz",
+    "surname": "Familiyangiz",
+    "information": "Qo`shimcha ma'lumot",
+    "question": "Savolingiz...",
+    "required": "To`ldirish majburiy!",
+    "btn": "YUBORISH",
+    "req-mes": "Elektron adress noto`g`ri!"
+  },
+  "footer": {
+    "cty": "TOSHKENT",
+    "address": "Manzil:",
+    "street": "Mirzo-Ulug`bek ko`chasi 25/201,",
+    "index": "Tashkent 100007",
+    "form": "QAYTA QO`NG`IROQ UCHUN",
+    "form-label": "Raqamingizni kiriting",
+    "btn": "RAQMNI YUBORISH",
+    "low": "Barcha huquqlar himoya qilingan!",
+    "num-error": "Raqamni yuborishda xatolik yuz berdi!"
+  },
+  "about": {
+    "team": "BIZNING JAMOA",
+    "client": "DOIMIY HAMKORLARIMIZ FIKRI"
+  },
+  "service": {
+    "title": "FIRMANING ASOSIY IXTISOSLASHGAN YO`NALISHLARI."
+  },
+  "press": {
+    "news": "YANGILIKLAR",
+    "memorandum": "MENORADUN",
+    "events": "HODISALAR"
+  },
+  "contacts":{
+    "title": "BIZNING KONTAKTLAR",
+    "form-title": "Sizni tinglashdan xursand bo`lamiz!"
   }
 }

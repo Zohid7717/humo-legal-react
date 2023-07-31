@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form'
 import PhoneInputWithCountrySelect from 'react-phone-number-input/react-hook-form'
+import { useTranslation } from 'react-i18next'
 
 import UContainer from '../../../components/ui/container/UContainer';
 import axios from '../../../services/network/axios'
@@ -10,6 +11,7 @@ import Modal from '../../../components/ui/modal/modal';
 
 const Form = () => {
   const [modal, setModal] = useState(false)
+  const { t, i18n } = useTranslation()
 
   const { register, formState: { errors, isValid }, handleSubmit, control, reset } = useForm({
     mode: "onBlur",
@@ -48,20 +50,20 @@ const Form = () => {
               <label className="form__firstName">
                 <input
                   {...register('fullName', {
-                    required: "Поля обязательно к заполнению!"
+                    required: t('form.required'),
+                    // message: t('form.required')
                   })}
                   type="text"
-                  placeholder="Имя"
+                  placeholder={t('form.name')}
                 />
-                {errors?.fullName && <p className='form__error'>Поля обязательно к заполнению!</p>}
+                {errors?.fullName && <p className='form__error'>{errors.fullName.message}</p>}
               </label>
               <label className="form__lastName">
                 <input
                   {...register('surname')}
                   type="text"
-                  placeholder="Фамилия"
+                  placeholder={t('form.surname')}
                 />
-                {errors?.surname && <p className='form__error'>Поля обязательно к заполнению!</p>}
               </label>
               <label className='contact-form__phone'>
                 <PhoneInputWithCountrySelect
@@ -71,27 +73,28 @@ const Form = () => {
                   defaultCountry='UZ'
                   placeholder='11 222-33-44'
                 />
-                {errors?.phone && <p className='form__error'>Поля обязательно к заполнению!</p>}
+                {errors?.phone && <p className='form__error'>{t('form.required')}</p>}
               </label>
               <label className='form__mail'>
                 <input
                   {...register('time', {
                   })}
                   type="text"
-                  placeholder='Доп. информация'
+                  placeholder={t('form.information')}
                 />
               </label>
             </div>
             <label className="form__input-text">
               <textarea
                 {...register('question', {
-                  required: "Поля обязательно к заполнению!"
+                  required: t('form.required'),
+                  // message: t('form.required')
                 })}
-                placeholder="Задайте свой вопрос"
+                placeholder={t('form.question')}
               />
               {errors?.question && <p className='form__error'>{errors?.question?.message || "Error!"}</p>}
             </label>
-            <button className='form__submit' disabled={!isValid}>ОТПРАВИТЬ</button>
+            <button className='form__submit' disabled={!isValid}>{t('form.btn')}</button>
           </form>
           <div className={modal ? "form__modal active" : "form__modal"}>
             <Modal />
