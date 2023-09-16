@@ -7,7 +7,6 @@ import App from './App.jsx';
 import './i18n';
 
 import { createTheme, responsiveFontSizes, ThemeProvider } from '@mui/material/styles';
-import Typography from '@mui/material/Typography';
 
 let theme = createTheme();
 theme = responsiveFontSizes(theme);

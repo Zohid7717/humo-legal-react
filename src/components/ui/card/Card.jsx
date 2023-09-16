@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import axios from '../../../services/network/axios';
 import { RiDeleteBin2Line } from 'react-icons/ri'
-import imgSketch from '../../../assets/icon/loggo.avif'
+import imgSketch from '../../../assets/icon/adolat_m.svg'
 
 import './Card.scss'
 import { useSelector } from 'react-redux';

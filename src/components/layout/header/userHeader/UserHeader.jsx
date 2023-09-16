@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next'
 
 import UContainer from '../../../ui/container/UContainer';
-import logo from '../../../../assets/icon/loggo.avif'
+import logo from '../../../../assets/icon/adolat_m.svg'
 import phone from '../../../../assets/icon/header_phone.svg'
 import imgUZB from '../../../../assets/icon/uzbekistan(1).png'
 import imgRUS from '../../../../assets/icon/russia(1).png'
@@ -75,7 +75,7 @@ const UserHeader = () => {
               <Link to="/" className={Scroll > 180 ? "header__logo_link passive" : "header__logo_link"}>
                 <img src={logo} alt="logo" />
                 <div className={Scroll > 180 ? "header__logo_content passive" : "header__logo_content"} >
-                  <p className="header__logo_title">HUMO LEGAL</p>
+                  <p className="header__logo_title">ADOLAT</p>
                   <p className="header__logo_text" >{t('logo.text')}</p>
                 </div>
               </Link>
